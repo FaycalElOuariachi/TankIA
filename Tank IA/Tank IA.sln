@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{70FFD5D4-39BE-B325-D232-5871C4A4F3B6}") = "Tank IA", "Assembly-CSharp-firstpass.csproj", "{785D6748-9D5D-CB33-0353-09CE98ED1081}"
+EndProject
+Project("{70FFD5D4-39BE-B325-D232-5871C4A4F3B6}") = "Tank IA", "Assembly-CSharp.csproj", "{DCDB896B-0941-244E-EF38-5CE4ACD7BFDF}"
+EndProject
+Project("{70FFD5D4-39BE-B325-D232-5871C4A4F3B6}") = "Tank IA", "Assembly-CSharp-Editor.csproj", "{B6552B09-12BF-EC6E-5CF7-F13E76ECDEDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{785D6748-9D5D-CB33-0353-09CE98ED1081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785D6748-9D5D-CB33-0353-09CE98ED1081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785D6748-9D5D-CB33-0353-09CE98ED1081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785D6748-9D5D-CB33-0353-09CE98ED1081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDB896B-0941-244E-EF38-5CE4ACD7BFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDB896B-0941-244E-EF38-5CE4ACD7BFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDB896B-0941-244E-EF38-5CE4ACD7BFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDB896B-0941-244E-EF38-5CE4ACD7BFDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6552B09-12BF-EC6E-5CF7-F13E76ECDEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6552B09-12BF-EC6E-5CF7-F13E76ECDEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6552B09-12BF-EC6E-5CF7-F13E76ECDEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6552B09-12BF-EC6E-5CF7-F13E76ECDEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

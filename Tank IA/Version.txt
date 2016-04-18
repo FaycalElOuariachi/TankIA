@@ -1,0 +1,3 @@
+Ajouts :
+	New Recorder (Absolute positions and rotations)
+	Replay (With absolute pos and rot)

@@ -1,0 +1,11 @@
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\IATankOne.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\IATankOne.pdb
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\Interfaces.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\UnityEngine.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\UnityEngine.xml
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\Interfaces.pdb
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\obj\Debug\IATankOne.csprojResolveAssemblyReference.cache
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\obj\Debug\IATankOne.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\obj\Debug\IATankOne.pdb
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\UnityEngine.UI.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IATankOne\IATankOne\bin\Debug\UnityEngine.UI.xml
