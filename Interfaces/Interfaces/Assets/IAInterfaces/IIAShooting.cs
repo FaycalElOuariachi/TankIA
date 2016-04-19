@@ -7,7 +7,7 @@ namespace Interfaces
 		/**
 		 * Garde une référence sur le Component Shooting du tank
 		 */
-		private Shooting m_TankShooting;
+		protected Shooting m_TankShooting;
 
 		/**
 		 * Récupère un lien vers le Component Shooting du tank

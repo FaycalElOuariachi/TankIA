@@ -13,11 +13,11 @@ public class TankHealthIA : Health
     public Color m_FullHealthColor = Color.green;  
     public Color m_ZeroHealthColor = Color.red;    
     public GameObject m_ExplosionPrefab;
+    private float m_CurrentHealth;  
     */
     
     private AudioSource m_ExplosionAudio;          
     private ParticleSystem m_ExplosionParticles;   
-    private float m_CurrentHealth;  
     private bool m_Dead;            
 	
 

@@ -15,13 +15,14 @@ public class TankShield : Shield {
 	*/
 
 	private GameObject m_Shield;
-    private float m_DeltaTime = Time.time;
+    private float m_DeltaTime;
     private string m_ShieldButton;
    
  
 	void Awake () {
 		m_Shield = GameObject.FindWithTag("Shield");
 		m_Shield.SetActive(false);
+		m_DeltaTime = Time.time;
 	}
 
     // Use this for initialization

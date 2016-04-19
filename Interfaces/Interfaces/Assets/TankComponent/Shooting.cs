@@ -18,8 +18,8 @@ namespace Interfaces {
 		[HideInInspector]
 		public Dictionary<int, int> m_FireOrders;
 
-		private float m_ChargeSpeed;
-		private float m_CurrentLaunchForce;
+		protected float m_ChargeSpeed;
+		protected float m_CurrentLaunchForce;
 
 		public float getChargeSpeed() {
 			return m_ChargeSpeed;

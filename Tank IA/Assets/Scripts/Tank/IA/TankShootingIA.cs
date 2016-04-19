@@ -9,8 +9,8 @@ using System.Linq;
 
 public class TankShootingIA : Shooting {     
 	
-    private float m_CurrentLaunchForce;  
-    private float m_ChargeSpeed;         
+   	//private float m_CurrentLaunchForce;  
+    //private float m_ChargeSpeed;         
     private bool m_Fired;
 	private bool m_Charging;
 

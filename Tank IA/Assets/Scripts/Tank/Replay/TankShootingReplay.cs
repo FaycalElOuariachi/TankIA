@@ -7,8 +7,8 @@ using Interfaces;
 
 public class TankShootingReplay : Shooting {
 
-    private float m_CurrentLaunchForce;
-    private float m_ChargeSpeed;
+    //private float m_CurrentLaunchForce;
+    //private float m_ChargeSpeed;
     private bool m_Fired;
 
 

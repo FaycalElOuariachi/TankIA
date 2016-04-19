@@ -7,7 +7,7 @@ using Interfaces;
 public class TankShieldReplay : Shield {
 
     private GameObject m_Shield;
-    private float m_DeltaTime = Time.time;
+    private float m_DeltaTime;
 
 
     void Awake()
@@ -15,6 +15,7 @@ public class TankShieldReplay : Shield {
         m_Shield = GameObject.FindWithTag("Shield");
         m_Shield.SetActive(false);
         m_ShieldOrders = new Dictionary<int, float>();
+		m_DeltaTime = Time.time;
     }
 
     // Use this for initialization

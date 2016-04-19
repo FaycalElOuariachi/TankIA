@@ -6,8 +6,8 @@ using Interfaces;
 public class TankShooting : Shooting
 {    
     private string m_FireButton;         
-    private float m_CurrentLaunchForce;  
-    private float m_ChargeSpeed;         
+    /*private float m_CurrentLaunchForce;  
+    private float m_ChargeSpeed;         */
     private bool m_Fired;                
 
 

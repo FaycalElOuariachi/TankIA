@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using Interfaces;
 
 public class TankHealthReplay : Health {
-	
+
+	/*
+	 private float m_CurrentHealth;  
+	 */
+
     private AudioSource m_ExplosionAudio;          
     private ParticleSystem m_ExplosionParticles;   
-    private float m_CurrentHealth;  
     private bool m_Dead;
 
 

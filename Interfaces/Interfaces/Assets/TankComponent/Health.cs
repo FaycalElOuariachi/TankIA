@@ -13,7 +13,7 @@ namespace Interfaces {
 	    public GameObject m_ExplosionPrefab;
 		[HideInInspector] public Dictionary<int, float> m_HealthOrders = new Dictionary<int, float>();
 
-	    private float m_CurrentHealth;
+		protected float m_CurrentHealth;
 
 		virtual public void TakeDamage(float amount) { return; }
 		virtual public float getCurrentHealth() { return m_CurrentHealth; }

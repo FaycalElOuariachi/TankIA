@@ -1,9 +1,8 @@
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\Interfaces.dll
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\Interfaces.pdb
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\UnityEngine.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\UnityEngine.UI.dll
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\UnityEngine.xml
-G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\obj\Debug\Interfaces.csprojResolveAssemblyReference.cache
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\UnityEngine.UI.xml
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\obj\Debug\Interfaces.dll
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\obj\Debug\Interfaces.pdb
-G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\UnityEngine.UI.dll
-G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Interfaces\Interfaces\bin\Debug\UnityEngine.UI.xml

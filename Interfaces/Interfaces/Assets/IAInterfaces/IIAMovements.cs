@@ -7,7 +7,7 @@ namespace Interfaces
 		/**
 		 * Garde une référence sur le Component Movement du tank
 		 */
-		private Movement m_TankMovement;
+		protected Movement m_TankMovement;
 
 		/**
 		 * Récupère un lien vers le Component Shooting du tank
