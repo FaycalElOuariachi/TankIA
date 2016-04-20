@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 	public TankManager[] m_Tanks;    // TODO créer une interface ITankManager, et ajouter un attribut bool m_isIA
 									  // et/ou un attribut contenant le type d'IA à utiliser
 	public RecorderManager[] m_Recorders;
+	public LoggerManager[] m_Loggers;
 
 	public bool m_HasRecorder = true;
 	public int m_GameNumber = -1;  
@@ -127,6 +128,9 @@ public class GameManager : MonoBehaviour
 		if (m_HasRecorder)
 			SetAllRecorders();
 
+		if (ScenesParameters.m_Logger != "")
+			SetAllLoggers ();
+
         StartCoroutine(GameLoop());
     }
 
@@ -139,16 +143,19 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < m_Tanks.Length; i++)
         {
+			// Si l'on joue un replay
 			if (m_GameNumber != -1) {
 				m_Tanks [i].m_Instance =
 					Instantiate (m_TankReplayPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
 				m_Tanks [i].m_RecorderPath = m_RecorderPath;
 				m_Tanks [i].m_isReplay = true;
 			}
+			// Sinon, si une IA a été sélectinner (dans ScenesParameters)
 			else if (m_IATanks [i] != "") {
 				m_Tanks [i].m_Instance =
 					Instantiate (m_IATankPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
 			}
+			// Sinon, mode normal
 			else {
 				m_Tanks [i].m_Instance =
 					Instantiate (m_TankPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
@@ -169,6 +176,20 @@ public class GameManager : MonoBehaviour
 			m_Recorders [i].m_Instance = Instantiate (m_RecorderPrefab) as GameObject;
 			m_Recorders [i].Setup ();
 			m_Recorders [i].SetTankInstance(m_Tanks [i]);
+		}
+	}
+
+	/**
+	 * Instancie les loggers pour chaque tanks
+	 */
+	private void SetAllLoggers()
+	{
+		for (int i = 0; i < m_Tanks.Length; i++)
+		{
+			m_Loggers [i].m_PlayerNumber = i + 1;
+			//m_Loggers [i].m_Instance = Instantiate (m_RecorderPrefab) as GameObject;
+			m_Loggers [i].Setup ();
+			m_Loggers [i].SetTank(m_Tanks [i]);
 		}
 	}
 
@@ -224,6 +245,11 @@ public class GameManager : MonoBehaviour
 			DisableRecorderControl ();
 		}
 
+		if (ScenesParameters.m_Logger != "") {
+			ResetAllLoggers ();
+			DisableLoggerControl ();
+		}
+
 		m_CameraControl.SetStartPositionAndSize ();
 
 		m_RoundNumber++;
@@ -243,6 +269,9 @@ public class GameManager : MonoBehaviour
 
 		if (m_HasRecorder)
 			EnableRecorderControl ();
+
+		if (ScenesParameters.m_Logger != "")
+			EnableLoggerControl ();
 
 		m_MessageText.text = "";
 
@@ -264,6 +293,9 @@ public class GameManager : MonoBehaviour
 
 		if (m_HasRecorder)
 			DisableRecorderControl ();
+		
+		if (ScenesParameters.m_Logger != "")
+			DisableLoggerControl ();
 
 		m_RoundWinner = null;
 
@@ -280,9 +312,15 @@ public class GameManager : MonoBehaviour
 
 		if (m_HasRecorder) {
 			// Write into a file the action Player
-			int i;
-			for (i = 0; i < m_Recorders.Length; i++) {
+			for (int i = 0; i < m_Recorders.Length; i++) {
 				m_Recorders [i].WriteActions ();
+			}
+		}
+
+		if (ScenesParameters.m_Logger != "") {
+			// Write into a file the action Player
+			for (int i = 0; i < m_Loggers.Length; i++) {
+				m_Loggers[i].WriteLog ();
 			}
 		}
 
@@ -382,6 +420,17 @@ public class GameManager : MonoBehaviour
 	}
 
 	/**
+	 * Ré-initialise tous les loggers
+	 */
+	private void ResetAllLoggers()
+	{
+		for (int i = 0; i < m_Loggers.Length; i++)
+		{
+			m_Loggers [i].Reset();
+		}
+	}
+
+	/**
 	 * (Ré-)active le controle de tous les tanks
 	 */
     private void EnableTankControl()
@@ -404,6 +453,17 @@ public class GameManager : MonoBehaviour
 	}
 
 	/**
+	 * (Ré-)active tous les loggers
+	 */
+	private void EnableLoggerControl()
+	{
+		for (int i = 0; i < m_Loggers.Length; i++)
+		{
+			m_Loggers[i].EnableControl();
+		}
+	}
+
+	/**
 	 * Désactive le controle de tous les tanks
 	 */
     private void DisableTankControl()
@@ -422,6 +482,17 @@ public class GameManager : MonoBehaviour
 		for (int i = 0; i < m_Recorders.Length; i++)
 		{
 			m_Recorders[i].DisableControl();
+		}
+	}
+
+	/**
+	 * Désactive tous les loggers
+	 */
+	private void DisableLoggerControl()
+	{
+		for (int i = 0; i < m_Loggers.Length; i++)
+		{
+			m_Loggers[i].DisableControl();
 		}
 	}
 }
