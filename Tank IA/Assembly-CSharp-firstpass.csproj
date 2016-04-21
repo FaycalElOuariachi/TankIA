@@ -168,6 +168,9 @@
  <Reference Include="Interfaces">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/Interfaces.dll</HintPath>
  </Reference>
+ <Reference Include="Log">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/loggers/Log.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

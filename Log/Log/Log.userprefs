@@ -2,7 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Log\Log.cs">
     <Files>
-      <File FileName="Log\Log.cs" Line="12" Column="36" />
+      <File FileName="Log\Log.cs" Line="28" Column="13" />
+      <File FileName="Log\Couple.cs" Line="15" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

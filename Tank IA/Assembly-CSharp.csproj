@@ -54,6 +54,7 @@
      <Compile Include="Assets\Complete\Scripts\Tank\TankShooting.cs" />
      <Compile Include="Assets\Complete\Scripts\UI\UIDirectionControl.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
+     <Compile Include="Assets\Scripts\Logger\Logger.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManagerRecorder.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManagerReplay.cs" />
@@ -163,6 +164,9 @@
  </Reference>
  <Reference Include="Interfaces">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/Interfaces.dll</HintPath>
+ </Reference>
+ <Reference Include="Log">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/loggers/Log.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

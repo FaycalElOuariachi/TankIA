@@ -8,32 +8,34 @@ public class GameManager : MonoBehaviour
 {
 	/**
 	 * --- Valeur quantitative
-	 * Num Rounds To Win  : nombre de round à gagner pour finir une partie
-	 * Start Delay        : temps minimum de chargement pré-round
-	 * End Delay          : temps minimum de chargement post-round
+	 * Num Rounds To Win     : nombre de round à gagner pour finir une partie
+	 * Start Delay           : temps minimum de chargement pré-round
+	 * End Delay             : temps minimum de chargement post-round
 	 * 
 	 * --- Mise en place de la scène
-	 * Camera Control     : CameraRig de la scène, qui servira à bien positionner la caméra
-	 * 					   en fonction de la position des tanks
-	 * Message Text       : écran d'affichage, possibilité d'en changer le texte à tout moment
-	 * 					  : notamment lors des pré-rounds et des post-rounds
+	 * Camera Control        : CameraRig de la scène, qui servira à bien positionner la caméra
+	 * 					      en fonction de la position des tanks
+	 * Message Text          : écran d'affichage, possibilité d'en changer le texte à tout moment
+	 * 			   		     : notamment lors des pré-rounds et des post-rounds
 	 * 
 	 * --- Prefabs
-	 * Tank Prefab		  : prefab de Tank à instancier
-	 * IA Tank Prefab		  : prefab de IA Tank à instancier
-	 * Tank Replay Prefab : prefab de Tank Replay à instancier
-	 * Recorder Prefab    : prefab de recorder à instancier
+	 * Tank Prefab		     : prefab de Tank à instancier
+	 * IA Tank Prefab		 : prefab de IA Tank à instancier
+	 * Tank Replay Prefab    : prefab de Tank Replay à instancier
+	 * Recorder Prefab       : prefab de recorder à instancier
+	 * Logger Prefab   		 : prefab de logger à instancier
+	 * Logger Manager Prefab : prefab de logger Manager à instancier
 	 * 
 	 * --- Managers
-	 * Tanks			 : liste de Tank Manager
-	 * Recorder Manager  : liste de recorder manager, à instancier ou non
+	 * Tanks			     : liste de Tank Manager
+	 * Recorder Manager      : liste de recorder manager, à instancier ou non
 	 * 
 	 * --- Variables d'indication de mode (normal, replay, record)
-	 * Has Recorder      : booléen indiquant la présence de Recorders
-	 * Game Number  	 : numéro de la partie à rejouer. Si la valeur est -1, ce n'est pas un
-	 * 					 : replay
-	 * IA Tank One		 : nom de l'IA à utiliser pour le premier tank
-	 * IA Tank Two		 : nom de l'IA à utiliser pour le deuxième tank
+	 * Has Recorder          : booléen indiquant la présence de Recorders
+	 * Game Number  	     : numéro de la partie à rejouer. Si la valeur est -1, ce n'est pas un
+	 * 					     : replay
+	 * IA Tank One		     : nom de l'IA à utiliser pour le premier tank
+	 * IA Tank Two		     : nom de l'IA à utiliser pour le deuxième tank
 	 */
     public int m_NumRoundsToWin = 5;        
     public float m_StartDelay = 3f;         
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
 	public GameObject m_TankReplayPrefab; 
 	public GameObject m_IATankPrefab; 
 	public GameObject m_RecorderPrefab;        
+	public GameObject m_LoggerManagerPrefab;            
+	public GameObject m_LoggerPrefab;    
     
 	public TankManager[] m_Tanks;    // TODO créer une interface ITankManager, et ajouter un attribut bool m_isIA
 									  // et/ou un attribut contenant le type d'IA à utiliser
@@ -128,8 +132,9 @@ public class GameManager : MonoBehaviour
 		if (m_HasRecorder)
 			SetAllRecorders();
 
-		if (ScenesParameters.m_Logger != "")
+		if (ScenesParameters.m_Logger != "") {
 			SetAllLoggers ();
+		}
 
         StartCoroutine(GameLoop());
     }
@@ -184,10 +189,11 @@ public class GameManager : MonoBehaviour
 	 */
 	private void SetAllLoggers()
 	{
-		for (int i = 0; i < m_Tanks.Length; i++)
+		for (int i = 0; i < m_Loggers.Length; i++)
 		{
+			m_Loggers [i] = Instantiate (m_LoggerManagerPrefab).GetComponent<LoggerManager>();
 			m_Loggers [i].m_PlayerNumber = i + 1;
-			//m_Loggers [i].m_Instance = Instantiate (m_RecorderPrefab) as GameObject;
+			m_Loggers [i].m_Instance = Instantiate (m_LoggerPrefab) as GameObject;
 			m_Loggers [i].Setup ();
 			m_Loggers [i].SetTank(m_Tanks [i]);
 		}

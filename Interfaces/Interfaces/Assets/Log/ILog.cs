@@ -1,9 +1,10 @@
 ﻿using UnityEngine;namespace Interfaces {
 
-	public abstract class ILog : MonoBehaviour {
+	public class ILog { //: MonoBehaviour {
 
 
 		public int m_PlayerNumber;
+		public string m_PathLog;
 		ITankManager m_TankManager;
 
 		public void setTank(ITankManager m_TankManager)
@@ -11,16 +12,20 @@
 			this.m_TankManager = m_TankManager;
 		}
 
-		public void captureFrame()
+		virtual public void captureFrame()
 		{
 
 		}
 
-		public void Write() {
+		virtual public void WriteASCII() {
 
 		}
 
-		public void Reset() {
+		virtual public void Write() {
+
+		}
+
+		virtual public void Reset() {
 
 		}
 

@@ -6,13 +6,13 @@ using System.Collections.Generic;
 using System.IO;
 
 [Serializable]
-public class TankManager// : ATankManager
+public class TankManager : ITankManager// : ATankManager
 {
 	public Color m_PlayerColor;
 	public Transform m_SpawnPoint;
 	[HideInInspector] public int m_PlayerNumber;
 	[HideInInspector] public string m_ColoredPlayerText;
-	[HideInInspector] public GameObject m_Instance;
+	// [HideInInspector] public GameObject m_Instance;
 	[HideInInspector] public int m_Wins;
 	[HideInInspector] public string m_RecorderPath;
 	[HideInInspector] public bool m_isReplay = false;
