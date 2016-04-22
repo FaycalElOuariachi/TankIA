@@ -7,23 +7,26 @@ using System;
 
 public class Logger : MonoBehaviour {
 
-	private ILog m_Logger;
 	public int m_PlayerNumber = 1;
+	public LayerMask collisionMask;
+	public LayerMask shellMask;
+
+
+	private ILog m_Logger;
 	private string m_PathLogger = ScenesParameters.m_PathLogger;
 	private string m_PathLog = ScenesParameters.m_PathLogger + Path.AltDirectorySeparatorChar + "dir_" + ScenesParameters.m_Logger;
 
 	// Use this for initialization
 	public void Setup () {
 		LoadLogger ();
-		Debug.Log("Timon & ");
 		m_Logger.m_PlayerNumber = m_PlayerNumber;
 		m_Logger.m_PathLog = m_PathLog;
+		m_Logger.setMask (collisionMask, shellMask);
 		m_Logger.Setup ();
-		Debug.Log("Pumba");
 	}
 
 	private void LoadLogger() {
-		string file = ScenesParameters.m_Logger;
+		string file = ScenesParameters.m_Logger + ".dll";
 		//string relativePath = String.Format ("{0}{2}", m_PathLogger, Path.AltDirectorySeparatorChar + "file");
 		string relativePath = m_PathLogger +  Path.AltDirectorySeparatorChar + file;
 		//Debug.Log (relativePath);
@@ -31,7 +34,7 @@ public class Logger : MonoBehaviour {
 		//Charge l'assembly
 		Assembly assembly = Assembly.LoadFile (relativePath);
 
-		// Récupérer et instancier la class IIAMovements
+		// Récupérer et instancier la class ILog
 		foreach ( Type module in assembly.GetTypes() ) {
 			if (module.BaseType == typeof(ILog))
 				m_Logger = (ILog) Activator.CreateInstance (module);
@@ -40,9 +43,6 @@ public class Logger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Timon et ");
-		m_Logger.Reset ();
-		Debug.Log ("Pumba");
 		m_Logger.captureFrame ();
 	}
 
@@ -51,9 +51,7 @@ public class Logger : MonoBehaviour {
 	}
 
 	public void WriteLog() {
-		Debug.Log ("NON ---------------------------");
 		m_Logger.WriteASCII ();
-		Debug.Log ("OUI ---------------------------");
 		m_Logger.Write ();
 	}
 

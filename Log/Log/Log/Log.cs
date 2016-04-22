@@ -14,8 +14,8 @@ namespace Log {
 		private Rigidbody m_Allie;
 		private Rigidbody m_Ennemy;
 		private int m_Quartier = 8;
-		private float m_Radius = 15;
-		private float m_RadiusShell = 3;
+		private float m_Radius = 5;
+		private float m_RadiusShell = 1;
 		private LayerMask m_CollisionMask;
 		private LayerMask m_ShellMask;
 
@@ -27,7 +27,6 @@ namespace Log {
 
 		public Log()
 		{
-			Debug.Log ("Hakuna");
 		}
 
 		override public void Setup() {
@@ -40,7 +39,8 @@ namespace Log {
 			m_Allie = tankManager.m_Instance.GetComponent<Rigidbody>();
 			m_Ennemy = ennemy.m_Instance.GetComponent<Rigidbody>();
 		}
-		public void setMask(LayerMask collisionMask, LayerMask shellMask)
+
+		override public void setMask(LayerMask collisionMask, LayerMask shellMask)
 		{
 			m_CollisionMask = collisionMask;
 			m_ShellMask = shellMask;
@@ -52,7 +52,12 @@ namespace Log {
 			Vector3 directionEnnemy = m_Ennemy.position - m_Allie.position;
 			Vector3 directionAllie = m_Allie.transform.forward;
 			float angle = Vector3.Angle(directionEnnemy, directionAllie);
+			if (Vector3.Cross (directionEnnemy, directionAllie).z > 0)
+				angle = 360 - angle;
+
 			float alpha = 360f / m_Quartier;
+
+
 
 			int i = (int) Math.Floor(angle / alpha);
 
@@ -68,6 +73,8 @@ namespace Log {
 				float distanceC = Vector3.Distance(m_Allie.position,collider.transform.position);
 				Vector3 directionC = collider.transform.position - m_Allie.position;
 				float angleC = Vector3.Angle(directionC, directionAllie);
+				if (Vector3.Cross (directionC, directionAllie).z > 0)
+					angleC = 360 - angleC;
 
 				if (distancesC[index] > distanceC)
 				{
@@ -83,10 +90,15 @@ namespace Log {
 				}
 			}
 
+			if (distancesC [0] > m_Radius && distancesC [1] > m_Radius && distancesC [2] > m_Radius) {
+				distancesC [0] = distancesC [1] = distancesC [2] = -1f;
+			}
+				
+
 			colliders = Physics.OverlapSphere(m_Ennemy.position, m_RadiusShell, m_ShellMask);
 
 			float distanceS = m_RadiusShell + 1f;
-			int iS = 0;
+			int iS = -1;
 
 			foreach (Collider collider in colliders)
 			{
@@ -108,6 +120,9 @@ namespace Log {
 
 			}
 
+			if (iS == -1)
+				distanceS = -1f;
+
 			// Ajout des observtations
 			m_DistanceToEnnemy.Add(distance);
 			m_DirectionToEnnemy.Add(i);
@@ -118,14 +133,11 @@ namespace Log {
 
 		// ASCII Writer
 		override public void WriteASCII() {
-			Debug.Log ("Cello");
 			Directory.CreateDirectory(m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter);
 			int nbColl = m_NearestColliders [0].First.Length;
-			Debug.Log ("Piano");
 			using (StreamWriter file =
 				new StreamWriter (m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter + Path.AltDirectorySeparatorChar + "Round" + m_RoundCounter + "_" + m_PlayerNumber + ".ASCIIlog")) {
 				string line = "";
-				Debug.Log ("Matata");
 				for ( int i = 0 ; i < m_DistanceToEnnemy.Count ; i++) {
 					line = m_DistanceToEnnemy [i].ToString () + " " + m_DirectionToEnnemy [i].ToString () + " ";
 					for (int j = 0 ; j < nbColl ; j++) {
@@ -158,12 +170,11 @@ namespace Log {
 		}
 
 		override public void Reset() {
-			captureFrame ();
-			/*m_RoundCounter++;
+			m_RoundCounter++;
 			m_DistanceToEnnemy.Clear ();
 			m_DirectionToEnnemy.Clear ();
 			m_NearestColliders.Clear ();
-			m_EnnemyShell.Clear ();*/
+			m_EnnemyShell.Clear ();
 		}
 
 	}

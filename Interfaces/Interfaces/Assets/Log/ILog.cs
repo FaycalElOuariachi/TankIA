@@ -5,13 +5,16 @@
 
 		public int m_PlayerNumber;
 		public string m_PathLog;
-		ITankManager m_TankManager;
 
 		virtual public void setTank(ITankManager m_TankManager, ITankManager m_ennemy)
 		{
 		}
 
 		virtual public void Setup() {
+
+		}
+
+		virtual public void setMask(LayerMask collisionMask, LayerMask shellMask) {
 
 		}
 
