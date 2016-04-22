@@ -29,8 +29,8 @@ public class LoggerManager : MonoBehaviour {
 		m_Logger.Setup ();
 	}
 
-	public void SetTank(ITankManager m_TankManager) {
-		m_Logger.SetTank (m_TankManager);
+	public void SetTank(ITankManager m_TankManager, ITankManager m_ennemy) {
+		m_Logger.SetTank (m_TankManager, m_ennemy);
 	}
 
 	public void WriteLog() {

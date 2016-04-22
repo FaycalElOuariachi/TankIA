@@ -9,7 +9,7 @@ using System.IO;
 public class TankShieldIA : Shield {
 
 	private GameObject m_Shield;
-    private float m_DeltaTime = Time.time;
+    private float m_DeltaTime;
     private string m_ShieldButton;
 
 	private string m_IAPath = @"./Assets/Library/";
@@ -17,6 +17,7 @@ public class TankShieldIA : Shield {
    
  
 	void Awake () {
+		m_DeltaTime = Time.time;
 		m_Shield = GameObject.FindWithTag("Shield");
 		m_Shield.SetActive(false);
 	}

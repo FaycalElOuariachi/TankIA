@@ -27,17 +27,16 @@ namespace Log {
 
 		public Log()
 		{
-			
+			Debug.Log ("Hakuna");
 		}
 
-		void Start() {
+		override public void Setup() {
 			Directory.CreateDirectory(m_PathLog);
 			m_GameCounter = Directory.GetDirectories (m_PathLog).Length + 1;
 		}
 
-		public void setTank(ITankManager tankManager, ITankManager ennemy)
+		override public void setTank(ITankManager tankManager, ITankManager ennemy)
 		{
-
 			m_Allie = tankManager.m_Instance.GetComponent<Rigidbody>();
 			m_Ennemy = ennemy.m_Instance.GetComponent<Rigidbody>();
 		}
@@ -119,11 +118,14 @@ namespace Log {
 
 		// ASCII Writer
 		override public void WriteASCII() {
+			Debug.Log ("Cello");
 			Directory.CreateDirectory(m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter);
 			int nbColl = m_NearestColliders [0].First.Length;
+			Debug.Log ("Piano");
 			using (StreamWriter file =
-				new StreamWriter (m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter + Path.AltDirectorySeparatorChar + "Round" + m_RoundCounter + "_" + m_PlayerNumber + ".log")) {
+				new StreamWriter (m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter + Path.AltDirectorySeparatorChar + "Round" + m_RoundCounter + "_" + m_PlayerNumber + ".ASCIIlog")) {
 				string line = "";
+				Debug.Log ("Matata");
 				for ( int i = 0 ; i < m_DistanceToEnnemy.Count ; i++) {
 					line = m_DistanceToEnnemy [i].ToString () + " " + m_DirectionToEnnemy [i].ToString () + " ";
 					for (int j = 0 ; j < nbColl ; j++) {
@@ -156,11 +158,12 @@ namespace Log {
 		}
 
 		override public void Reset() {
-			m_RoundCounter++;
+			captureFrame ();
+			/*m_RoundCounter++;
 			m_DistanceToEnnemy.Clear ();
 			m_DirectionToEnnemy.Clear ();
 			m_NearestColliders.Clear ();
-			m_EnnemyShell.Clear ();
+			m_EnnemyShell.Clear ();*/
 		}
 
 	}

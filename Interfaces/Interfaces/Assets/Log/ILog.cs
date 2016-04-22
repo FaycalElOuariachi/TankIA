@@ -7,9 +7,12 @@
 		public string m_PathLog;
 		ITankManager m_TankManager;
 
-		public void setTank(ITankManager m_TankManager)
+		virtual public void setTank(ITankManager m_TankManager, ITankManager m_ennemy)
 		{
-			this.m_TankManager = m_TankManager;
+		}
+
+		virtual public void Setup() {
+
 		}
 
 		virtual public void captureFrame()

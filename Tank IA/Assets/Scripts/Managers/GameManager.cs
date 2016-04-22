@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour
 			m_Loggers [i].m_PlayerNumber = i + 1;
 			m_Loggers [i].m_Instance = Instantiate (m_LoggerPrefab) as GameObject;
 			m_Loggers [i].Setup ();
-			m_Loggers [i].SetTank(m_Tanks [i]);
+			m_Loggers [i].SetTank(m_Tanks [i], m_Tanks[(i+1)%2]);
 		}
 	}
 

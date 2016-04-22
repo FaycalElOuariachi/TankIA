@@ -15,7 +15,11 @@ public class Logger : MonoBehaviour {
 	// Use this for initialization
 	public void Setup () {
 		LoadLogger ();
+		Debug.Log("Timon & ");
 		m_Logger.m_PlayerNumber = m_PlayerNumber;
+		m_Logger.m_PathLog = m_PathLog;
+		m_Logger.Setup ();
+		Debug.Log("Pumba");
 	}
 
 	private void LoadLogger() {
@@ -29,32 +33,31 @@ public class Logger : MonoBehaviour {
 
 		// Récupérer et instancier la class IIAMovements
 		foreach ( Type module in assembly.GetTypes() ) {
-			if (module.BaseType == typeof(ILog)) {
-				//m_Logger = m_Instance.AddComponent<module> ();
+			if (module.BaseType == typeof(ILog))
 				m_Logger = (ILog) Activator.CreateInstance (module);
-				m_Logger.captureFrame ();
-			}
-			//m_Instance = (ILog) Activator.CreateInstance (module);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("Timon et ");
+		m_Logger.Reset ();
+		Debug.Log ("Pumba");
 		m_Logger.captureFrame ();
 	}
 
-	public void SetTank(ITankManager m_TankManager) {
-		m_Logger.setTank (m_TankManager);
+	public void SetTank(ITankManager m_TankManager, ITankManager m_ennemy) {
+		m_Logger.setTank (m_TankManager, m_ennemy);
 	}
 
 	public void WriteLog() {
+		Debug.Log ("NON ---------------------------");
 		m_Logger.WriteASCII ();
+		Debug.Log ("OUI ---------------------------");
 		m_Logger.Write ();
 	}
 
 	public void Reset() {
-		Debug.Log ("Timon");
-		//m_Logger.Reset ();
-		Debug.Log ("Pumba");
+		m_Logger.Reset ();
 	}
 }

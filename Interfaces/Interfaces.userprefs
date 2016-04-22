@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Interfaces\Interfaces.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Interfaces\Assets\ITankManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Interfaces\Assets\Log\ILog.cs">
     <Files>
       <File FileName="Interfaces\Assets\ITankManager.cs" Line="7" Column="3" />
-      <File FileName="Interfaces\Assets\Log\ILog.cs" Line="3" Column="24" />
+      <File FileName="Interfaces\Assets\Log\ILog.cs" Line="8" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
