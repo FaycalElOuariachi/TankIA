@@ -1,0 +1,13 @@
+Problèmes :
+- Le menu du jeu ne fonctionne pas dans la version compilée
+- Le Logger "Log" doit être vérifié, je n'ai pas l'impression qu'il renvoie les bonnes valeurs concernant les emplacements relatives des obstacles
+  (certains doublons sont présents), et les missiles adverse sont mals détectés (possibilité que l'on enregistre ses propres tirs plutôt que les tirs
+  ennemis)
+- les replays ne sont pas exactes (au niveau des PV)
+- tout plein d'erreur dans la console, du à des subtilité de Unity (non génant au déroulement du jeu, mais embétant pour le débuggage)
+
+A faire :
+- Finir leCSharp générator
+- Jouer
+- Tester les logs sur un replay (fait).
+- Créer un script qui rejouera une batterie de replay, en appliquant les logs
