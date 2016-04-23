@@ -32,26 +32,30 @@ public class TankHealthReplay : Health {
         SetHealthUI();
     }
     
-	/*public void update() {
+	public void update() {
 		float newHealth;
 		Debug.Log ("Timon");
 
 		if (m_HealthOrders.TryGetValue (Time.frameCount, out newHealth) && m_CurrentHealth != newHealth) {
 			Debug.Log (m_CurrentHealth - newHealth);
-			TakeDamage (m_CurrentHealth - newHealth);
+			TakeDamage2 (m_CurrentHealth - newHealth);
 		}
-	}*/
+	}
 
     override public void TakeDamage(float amount)
     {
-        // Adjust the tank's current health, update the UI based on the new health and check whether or not the tank is dead.
+	}
+
+	public void TakeDamage2(float amount)
+	{
+		// Adjust the tank's current health, update the UI based on the new health and check whether or not the tank is dead.
 		m_CurrentHealth -= amount;
 
 		SetHealthUI ();
 
 		if (m_CurrentHealth <= 0f && !m_Dead)
 			OnDeath();
-    }
+	}
 
 
     private void SetHealthUI()
