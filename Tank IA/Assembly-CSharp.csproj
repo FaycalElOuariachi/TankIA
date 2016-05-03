@@ -56,10 +56,9 @@
      <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
      <Compile Include="Assets\Scripts\Logger\Logger.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManagerRecorder.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManagerReplay.cs" />
      <Compile Include="Assets\Scripts\Managers\LoggerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\RecorderManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\ReplayManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TankManager.cs" />
      <Compile Include="Assets\Scripts\Managers\TankManagerReplay.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuDemarrage.cs" />

@@ -6,7 +6,7 @@ import pyAgrum.lib.notebook as gnb
 
 
 # A partir d'un réseau fait à la main
-learner=gum.BNLearner("sample_asia.csv")
+learner=gum.BNLearner("log.csv")
+learner.useLocalSearchWithTabuList()
+bn = learner.learnBN()
 gnb.showBN(bn)
-bn2=learner.learnParameters(bn)
-gnb.showBN(bn2)

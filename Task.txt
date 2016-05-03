@@ -1,13 +1,16 @@
-Problèmes :
-- Le menu du jeu ne fonctionne pas dans la version compilée
-- Le Logger "Log" doit être vérifié, je n'ai pas l'impression qu'il renvoie les bonnes valeurs concernant les emplacements relatives des obstacles
-  (certains doublons sont présents), et les missiles adverse sont mals détectés (possibilité que l'on enregistre ses propres tirs plutôt que les tirs
-  ennemis)
-- les replays ne sont pas exactes (au niveau des PV)
+﻿Problèmes :
 - tout plein d'erreur dans la console, du à des subtilité de Unity (non génant au déroulement du jeu, mais embétant pour le débuggage)
+- Log : un obstacle peu être compté plusieurs fois dans une même frame
+- Replay : les PV sont recalculés, il faudrait trouver un moyen de réapliquer les même dommages que dans la vraie partie -> comprendre pourquoi
+           la fonction "Update" n'est pas appelée dans TankHealthReplay.cs
 
 A faire :
 - Finir leCSharp générator
+- Réussir à apprendre un réseau bayésien
 - Jouer
-- Tester les logs sur un replay (fait).
-- Créer un script qui rejouera une batterie de replay, en appliquant les logs
+- Créer un script qui rejouera une batterie de replay, en appliquant les logs:
+	- Créer un fichier lock (pour signifier que la partie à été loggée (à nommer))
+	- Regler le problème des comptages de victoires
+	- Le replayer en masse joue simultanemment 3 parties, présentement, il peut y avoir des dommages infligé
+	  à d'autres tank que la partie d'où vient le missile -> ajouter un ID pour chaque partie
+	- est ce que les tanks de différentes parties sont bien fantomatique, ou y a t-il des collisions ?

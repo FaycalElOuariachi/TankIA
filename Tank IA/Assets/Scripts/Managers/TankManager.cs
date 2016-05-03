@@ -17,6 +17,7 @@ public class TankManager : ITankManager// : ATankManager
 	[HideInInspector] public string m_RecorderPath;
 	[HideInInspector] public bool m_isReplay = false;
 
+
 	private int m_nbRounds;
     private Movement m_Movement;       
     private Shooting m_Shooting;
@@ -32,8 +33,10 @@ public class TankManager : ITankManager// : ATankManager
         m_Shield = m_Instance.GetComponent<Shield>();
         m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
 
-		if (m_isReplay)
+		if (m_isReplay) {
 			m_Health = m_Instance.GetComponent<Health> ();
+			//m_Instance.GetComponent<BoxCollider> ().enabled = false;
+		}
 
         m_Movement.m_PlayerNumber = m_PlayerNumber;
         m_Shooting.m_PlayerNumber = m_PlayerNumber;
@@ -69,10 +72,11 @@ public class TankManager : ITankManager// : ATankManager
         m_Shooting.enabled = true;
 		m_Shield.enabled = true;
 
-		/*if (m_isReplay)
-			m_Health.enabled = true;*/
+		if (m_isReplay) {
+			m_Health.enabled = true;
+		}
 
-        m_CanvasGameObject.SetActive(true);
+		m_CanvasGameObject.SetActive(true);
     }
 
 
@@ -113,7 +117,6 @@ public class TankManager : ITankManager// : ATankManager
 
 				case "T":
 					turnOrders.Add(int.Parse(split[0]), float.Parse(split[2]));
-					Debug.LogWarning(split[2]);
 					break;
 
 				case "F":

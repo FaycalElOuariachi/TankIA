@@ -19,16 +19,20 @@ public class GameManager : MonoBehaviour
 	 * 			   		     : notamment lors des pré-rounds et des post-rounds
 	 * 
 	 * --- Prefabs
-	 * Tank Prefab		     : prefab de Tank à instancier
-	 * IA Tank Prefab		 : prefab de IA Tank à instancier
-	 * Tank Replay Prefab    : prefab de Tank Replay à instancier
-	 * Recorder Prefab       : prefab de recorder à instancier
-	 * Logger Prefab   		 : prefab de logger à instancier
-	 * Logger Manager Prefab : prefab de logger Manager à instancier
+	 * Tank Prefab		  	: prefab de Tank à instancier
+	 * IA Tank Prefab		: prefab de IA Tank à instancier
+	 * Tank Replay Prefab  	: prefab de Tank Replay à instancier
+	 * Recorder Prefab    	: prefab de recorder à instancier
+	 * Logger Prefab   		: prefab de logger à instancier
+	 * Logger Manager Prefab	: prefab de logger Manager à instancier
 	 * 
 	 * --- Managers
-	 * Tanks			     : liste de Tank Manager
+	 * Tanks			   		: liste de Tank Manager
 	 * Recorder Manager      : liste de recorder manager, à instancier ou non
+	 * Logger Manager      	: liste de logger manager, à instancier ou non
+	 * Replay Manager   		: replay manager, à instancier ou non
+	 * 
+	 * Player Mask		   		: Mask des joueurs
 	 * 
 	 * --- Variables d'indication de mode (normal, replay, record)
 	 * Has Recorder          : booléen indiquant la présence de Recorders
@@ -51,13 +55,16 @@ public class GameManager : MonoBehaviour
 	public GameObject m_LoggerManagerPrefab;            
 	public GameObject m_LoggerPrefab;    
     
-	public TankManager[] m_Tanks;    // TODO créer une interface ITankManager, et ajouter un attribut bool m_isIA
-									  // et/ou un attribut contenant le type d'IA à utiliser
+	public TankManager[] m_Tanks;
 	public RecorderManager[] m_Recorders;
 	public LoggerManager[] m_Loggers;
+	public ReplayManager m_ReplayManager = null;
+
+	public LayerMask m_PlayerMask;
 
 	public bool m_HasRecorder = true;
 	public int m_GameNumber = -1;  
+	public string m_GameName = "";  
 	[HideInInspector] public string[] m_IATanks;
 
 
@@ -101,14 +108,21 @@ public class GameManager : MonoBehaviour
 		if (ScenesParameters.m_GameNumber != -1)
 			m_GameNumber = ScenesParameters.m_GameNumber;
 
+		if (ScenesParameters.m_GameName != "") {
+			m_GameName = ScenesParameters.m_GameName;
+			Physics.IgnoreLayerCollision(m_PlayerMask, m_PlayerMask, true);
+		}
+
 		m_IATanks = ScenesParameters.m_IATanks;
 
         m_StartWait = new WaitForSeconds(m_StartDelay);
 		m_EndWait = new WaitForSeconds(m_EndDelay);
 
-		if (m_GameNumber != -1) {
+		//if (m_GameNumber != -1) {
+		if (m_GameName != "") {
 			//Check if game exists
-			m_RecorderPath = @"records" + "\\Game" + m_GameNumber;
+			//m_RecorderPath = @"records" + "\\Game" + m_GameNumber;
+			m_RecorderPath = m_GameName; //@"records" + Path.AltDirectorySeparatorChar + m_GameName;
 			if (!Directory.Exists (m_RecorderPath)) {
 				m_MessageText.text = m_RecorderPath + "\n Unknown Game";
 				return;
@@ -149,7 +163,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < m_Tanks.Length; i++)
         {
 			// Si l'on joue un replay
-			if (m_GameNumber != -1) {
+			if (m_GameName != "") {
 				m_Tanks [i].m_Instance =
 					Instantiate (m_TankReplayPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
 				m_Tanks [i].m_RecorderPath = m_RecorderPath;
@@ -227,6 +241,10 @@ public class GameManager : MonoBehaviour
         {
 			//Application.LoadLevel (Application.loadedLevel);
 			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			if (m_ReplayManager != null) {
+				m_ReplayManager.setGo ();
+				Destroy (this.gameObject);
+			}
 			SceneManager.LoadScene(0);
         }
         else
@@ -500,5 +518,9 @@ public class GameManager : MonoBehaviour
 		{
 			m_Loggers[i].DisableControl();
 		}
+	}
+
+	public void setReplayManager( ReplayManager replayManager ) {
+		m_ReplayManager = replayManager;
 	}
 }

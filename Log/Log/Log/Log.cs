@@ -74,7 +74,7 @@ namespace Log {
 			float distance = Vector3.Distance(m_Allie.position,m_Ennemy.position);
 			Vector3 directionEnnemy = m_Ennemy.position - m_Allie.position;
 			Vector3 directionAllie = m_Allie.transform.forward;
-			float angle = Vector3.Angle(directionEnnemy, directionAllie);
+			float angle = Vector3.Angle(directionEnnemy, directionAllie); // - 360.0/(m_Quartier*2.0);
 			if (Vector3.Cross (directionEnnemy, directionAllie).z > 0)
 				angle = 360 - angle;
 
@@ -111,6 +111,8 @@ namespace Log {
 						}
 					}
 				}
+
+				// TODO trier distancesC (et iC en parallèle)
 			}
 
 			if (distancesC [0] > m_Radius)
@@ -150,6 +152,8 @@ namespace Log {
 
 			if (iS != -1)
 				distanceS = 1f;
+			else
+				distanceS = 0f;
 
 			// Ajout des observtations
 			m_DistanceToEnnemy.Add(distance);

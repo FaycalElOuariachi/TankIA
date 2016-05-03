@@ -1,25 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\ReplayManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\ScenesParameters\ScenesParameters.cs" Line="8" Column="48" />
-      <File FileName="Assets\Scripts\Tank\IA\TankMovementIA.cs" Line="73" Column="1" />
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="104" Column="42" />
+      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="244" Column="23" />
+      <File FileName="Assets\Scripts\Managers\TankManager.cs" Line="38" Column="6" />
+      <File FileName="Assets\Scripts\Managers\ReplayManager.cs" Line="72" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Tank IA" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
+              <Node name="References" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Managers" expanded="True">
-                  <Node name="GameManager.cs" selected="True" />
+                  <Node name="ReplayManager.cs" selected="True" />
                 </Node>
                 <Node name="Menu" expanded="True" />
                 <Node name="ScenesParameters" expanded="True" />
+                <Node name="Shell" expanded="True" />
                 <Node name="Tank" expanded="True">
-                  <Node name="IA" expanded="True" />
                   <Node name="Player" expanded="True" />
+                  <Node name="Replay" expanded="True" />
                 </Node>
               </Node>
             </Node>

@@ -47,6 +47,7 @@ public class TankMovement : Movement
 
     private void Start()
     {
+		Debug.Log ("Pumba");
         m_MovementAxisName = "Vertical" + m_PlayerNumber;
         m_TurnAxisName = "Horizontal" + m_PlayerNumber;
 

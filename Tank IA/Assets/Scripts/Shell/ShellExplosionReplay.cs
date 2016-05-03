@@ -26,7 +26,6 @@ public class ShellExplosionReplay : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
 		{
             Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
-
 			if (colliders [i].GetComponent<Shield> ().m_PlayerNumber == m_PlayerNumber) {
 				return;
 			}
