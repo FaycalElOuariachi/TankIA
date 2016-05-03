@@ -14,8 +14,8 @@ namespace Log {
 		private Rigidbody m_Allie;
 		private Rigidbody m_Ennemy;
 		private int m_Quartier = 8;
-		private float m_Radius = 5;
-		private float m_RadiusShell = 1;
+		private float m_Radius = 20;
+		private float m_RadiusShell = 3;
 		private LayerMask m_CollisionMask;
 		private LayerMask m_ShellMask;
 
@@ -23,6 +23,29 @@ namespace Log {
 		private List<int> m_DirectionToEnnemy = new List<int> (); // variable i
 		private List<Couple<float[],int[]>> m_NearestColliders = new List<Couple<float[],int[]>>(); // varaibles distancesC, iC
 		private List<Couple<float,int>> m_EnnemyShell = new List<Couple<float,int>>(); // varaibles distanceS, iS
+
+		private string m_SpaceChara = ";";
+
+		private string m_NameDistance = "distance";
+		private int m_DomDefDistance = 4;
+		private string m_NameDirection = "direction";
+		private int m_DomDefDirection = m_Quartier;
+
+		private string m_NameDistColl1 = "dist_coll_1";
+		private int m_DomDefDistColl1 = 3;
+		private string m_NameDirColl1 = "dir_coll_1";
+		private int m_DomDefDirColl1 = m_Quartier;
+		private string m_NameDistColl2 = "dist_coll_2";
+		private int m_DomDefDistColl2 = 3;
+		private string m_NameDirColl2 = "dir_coll_2";
+		private int m_DomDefDirColl2 = m_Quartier;
+		private string m_NameDistColl3 = "dist_coll_3";
+		private int m_DomDefDistColl3 = 3;
+		private string m_NameDirColl3 = "dir_coll_3";
+		private int m_DomDefDirColl3 = m_Quartier;
+
+		private string m_NameDistShell = "dist_shell";
+		private int m_DomDefDistShell = 2;
 
 
 		public Log()
@@ -90,9 +113,14 @@ namespace Log {
 				}
 			}
 
-			if (distancesC [0] > m_Radius && distancesC [1] > m_Radius && distancesC [2] > m_Radius) {
-				distancesC [0] = distancesC [1] = distancesC [2] = -1f;
-			}
+			if (distancesC [0] > m_Radius)
+				distancesC [0] = -1f;
+
+			if (distancesC [1] > m_Radius)
+				distancesC [1] = -1f;
+
+			if (distancesC [2] > m_Radius)
+				distancesC [2] = -1f;
 				
 
 			colliders = Physics.OverlapSphere(m_Ennemy.position, m_RadiusShell, m_ShellMask);
@@ -120,8 +148,8 @@ namespace Log {
 
 			}
 
-			if (iS == -1)
-				distanceS = -1f;
+			if (iS != -1)
+				distanceS = 1f;
 
 			// Ajout des observtations
 			m_DistanceToEnnemy.Add(distance);
@@ -137,16 +165,22 @@ namespace Log {
 			int nbColl = m_NearestColliders [0].First.Length;
 			using (StreamWriter file =
 				new StreamWriter (m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter + Path.AltDirectorySeparatorChar + "Round" + m_RoundCounter + "_" + m_PlayerNumber + ".ASCIIlog")) {
+				file.WriteLine (WriteEntete());
 				string line = "";
 				for ( int i = 0 ; i < m_DistanceToEnnemy.Count ; i++) {
-					line = m_DistanceToEnnemy [i].ToString () + " " + m_DirectionToEnnemy [i].ToString () + " ";
+					line = m_DistanceToEnnemy [i].ToString () + m_SpaceChara + m_DirectionToEnnemy [i].ToString () + m_SpaceChara;
 					for (int j = 0 ; j < nbColl ; j++) {
-						line += m_NearestColliders [i].First [j].ToString() + " " + m_NearestColliders [i].Second [j].ToString() + " ";
+						line += m_NearestColliders [i].First [j].ToString() + m_SpaceChara + m_NearestColliders [i].Second [j].ToString() + m_SpaceChara;
 					}
-					line += m_EnnemyShell [i].First.ToString() + " " + m_EnnemyShell [i].Second.ToString();
+					line += m_EnnemyShell [i].First.ToString();// + m_SpaceChara + m_EnnemyShell [i].Second.ToString();
 					file.WriteLine(line);
 				}
 			}
+		}
+
+		private string WriteEntete() {
+			return m_NameDistance + m_SpaceChara + m_NameDirection + m_SpaceChara + m_NameDistColl1 + m_SpaceChara + m_NameDirColl1 + m_SpaceChara + m_NameDistColl2 + m_SpaceChara + m_NameDirColl2 
+				+ m_SpaceChara + m_NameDistColl3 + m_SpaceChara + m_NameDirColl3 + m_SpaceChara + m_NameDistShell;// + + "dir_shell" ;
 		}
 
 		// Binary Writer
@@ -164,8 +198,30 @@ namespace Log {
 						file.Write (m_NearestColliders [i].Second [j]);
 					}
 					file.Write (m_EnnemyShell [i].First);
-					file.Write (m_EnnemyShell [i].Second);
+					//file.Write (m_EnnemyShell [i].Second);
 				}
+			}
+		}
+
+		override public void WriteDomaines() {
+			Directory.CreateDirectory(m_PathLog);
+			int nbColl = m_NearestColliders [0].First.Length;
+			using (StreamWriter file =
+				       new StreamWriter (File.Open (m_PathLog + Path.AltDirectorySeparatorChar + "domaines.logform", FileMode.Create))) {
+				string line = "9" + "\n"
+					+ m_NameDistance + m_SpaceChara + m_DomDefDistance + "\n"
+					+ m_NameDistance + m_SpaceChara + m_DomDefDistance + "\n"
+					+ m_NameDirection + m_SpaceChara + m_DomDefDirection + "\n"
+
+					+ m_NameDistColl1 + m_SpaceChara + m_DomDefDistColl1 + "\n"
+					+ m_NameDirColl1 + m_SpaceChara + m_DomDefDirColl1 + "\n"
+					+ m_NameDistColl2 + m_SpaceChara + m_DomDefDistColl2 + "\n"
+					+ m_NameDirColl2 + m_SpaceChara + m_DomDefDirColl2 + "\n"
+					+ m_NameDistColl3 + m_SpaceChara + m_DomDefDistColl3 + "\n"
+					+ m_NameDirColl3 + m_SpaceChara + m_DomDefDirColl3 + "\n"
+
+					+ m_NameDistShell + m_SpaceChara + m_DomDefDistShell;
+				file.WriteLine (line);
 			}
 		}
 

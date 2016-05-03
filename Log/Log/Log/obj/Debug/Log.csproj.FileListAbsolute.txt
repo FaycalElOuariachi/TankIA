@@ -6,6 +6,5 @@ G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\bin\Deb
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\bin\Debug\Interfaces.pdb
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\bin\Debug\UnityEngine.xml
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\bin\Debug\UnityEngine.UI.xml
-G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\obj\Debug\Log.csprojResolveAssemblyReference.cache
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\obj\Debug\Log.dll
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Log\Log\Log\obj\Debug\Log.pdb

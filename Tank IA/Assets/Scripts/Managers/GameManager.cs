@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
 			}
 
 			// Forcer à ne pas utiliser d'IA
-			m_IATanks[0] = m_IATanks[1] = "";
+			//m_IATanks[0] = m_IATanks[1] = "";
 		}
 
 		SpawnAllTanks();

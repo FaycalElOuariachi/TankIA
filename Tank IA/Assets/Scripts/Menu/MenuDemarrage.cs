@@ -165,7 +165,7 @@ public class MenuDemarrage : MonoBehaviour {
 
 	public void replayGame( int numeroReplay)//string nameReplay)
     {
-
+		Debug.Log (numeroReplay);
 		ScenesParameters.m_GameNumber = numeroReplay + 1;
 		//Debug.Log (numeroReplay + 1);//.Substring (4));
 		//Application.LoadLevel(1);

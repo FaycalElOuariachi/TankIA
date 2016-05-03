@@ -1,13 +1,37 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Shell\ShellExplosion.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\GameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\TankManager.cs" Line="116" Column="9" />
-      <File FileName="Assets\Scripts\Tank\Replay\TankMovementReplay.cs" Line="90" Column="29" />
-      <File FileName="Assets\Scripts\Tank\Player\TankMovement.cs" Line="113" Column="52" />
-      <File FileName="Assets\Scripts\Shell\ShellExplosionReplay.cs" Line="59" Column="9" />
-      <File FileName="Assets\Scripts\Shell\ShellExplosion.cs" Line="58" Column="21" />
+      <File FileName="Assets\Scripts\ScenesParameters\ScenesParameters.cs" Line="8" Column="48" />
+      <File FileName="Assets\Scripts\Tank\IA\TankMovementIA.cs" Line="73" Column="1" />
+      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="104" Column="42" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Tank IA" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Managers" expanded="True">
+                  <Node name="GameManager.cs" selected="True" />
+                </Node>
+                <Node name="Menu" expanded="True" />
+                <Node name="ScenesParameters" expanded="True" />
+                <Node name="Tank" expanded="True">
+                  <Node name="IA" expanded="True" />
+                  <Node name="Player" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="Tank IA" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
