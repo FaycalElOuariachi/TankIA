@@ -167,6 +167,12 @@
  <Reference Include="Log">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/loggers/Log.dll</HintPath>
  </Reference>
+ <Reference Include="IATankTwo">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IATankTwo.dll</HintPath>
+ </Reference>
+ <Reference Include="IATankOne">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IATankOne.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
