@@ -153,14 +153,14 @@
  <Reference Include="IAActions">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IAActions.dll</HintPath>
  </Reference>
- <Reference Include="IATankOne">
- <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IATankOne.dll</HintPath>
- </Reference>
- <Reference Include="IATankTwo">
- <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IATankTwo.dll</HintPath>
- </Reference>
  <Reference Include="Interfaces">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/Interfaces.dll</HintPath>
+ </Reference>
+ <Reference Include="IATankOne">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IATankOne.dll</HintPath>
+ </Reference>
+ <Reference Include="IATankTwo">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IATankTwo.dll</HintPath>
  </Reference>
  <Reference Include="Log">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/loggers/Log.dll</HintPath>
@@ -173,12 +173,6 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>G:/Ciels/Flower/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="IATankTwo">
- <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IATankTwo.dll</HintPath>
- </Reference>
- <Reference Include="IATankOne">
- <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IATankOne.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
