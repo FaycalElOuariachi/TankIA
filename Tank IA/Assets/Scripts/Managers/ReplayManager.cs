@@ -52,6 +52,8 @@ public class ReplayManager: MonoBehaviour
 				ScenesParameters.m_HasRecorder = false;
 				m_GameManager = (Instantiate (m_PrefabGameManager, new Vector3(0f,0f,0f), new Quaternion(0f,0f,0f,0f)) as GameObject).GetComponent<GameManager>();
 
+				m_GameManager.m_MaskOn = true;
+
 				m_GameManager.m_CameraControl = m_CameraControl;
 				m_GameManager.m_MessageText = m_MessageText;
 

@@ -13,21 +13,29 @@ namespace Log {
 
 		private Rigidbody m_Allie;
 		private Rigidbody m_Ennemy;
-		private int m_Quartier = 8;
+		static private int m_Quartier = 8;
 		private float m_Radius = 20;
 		private float m_RadiusShell = 3;
 		private LayerMask m_CollisionMask;
 		private LayerMask m_ShellMask;
 
-		private List<float> m_DistanceToEnnemy = new List<float> (); // variable distance
+		/**
+		 * m_DistanceToEnnemy		: Liste des distances à l'ennemi
+		 * m_DirectionToEnnemy		: 
+		 * m_NearestColliders			: 
+		 * m_EnnemyShell				: 
+		 */
+		private List<int> m_DistanceToEnnemy = new List<int> (); // variable distance
 		private List<int> m_DirectionToEnnemy = new List<int> (); // variable i
-		private List<Couple<float[],int[]>> m_NearestColliders = new List<Couple<float[],int[]>>(); // varaibles distancesC, iC
-		private List<Couple<float,int>> m_EnnemyShell = new List<Couple<float,int>>(); // varaibles distanceS, iS
+		private List<Couple<int[],int[]>> m_NearestColliders = new List<Couple<int[],int[]>>(); // varaibles distancesC, iC
+		private List<Couple<int,int>> m_EnnemyShell = new List<Couple<int,int>>(); // varaibles distanceS, iS
 
-		private string m_SpaceChara = ";";
+		private string m_SpaceChara = ",";
 
 		private string m_NameDistance = "distance";
 		private int m_DomDefDistance = 4;
+		private int[] m_IntervallesDistances = { 20, 60, 120};
+
 		private string m_NameDirection = "direction";
 		private int m_DomDefDirection = m_Quartier;
 
@@ -43,6 +51,7 @@ namespace Log {
 		private int m_DomDefDistColl3 = 3;
 		private string m_NameDirColl3 = "dir_coll_3";
 		private int m_DomDefDirColl3 = m_Quartier;
+		private int[] m_IntervallesCollision = { 10, 30};
 
 		private string m_NameDistShell = "dist_shell";
 		private int m_DomDefDistShell = 2;
@@ -72,6 +81,19 @@ namespace Log {
 		override public void captureFrame()
 		{
 			float distance = Vector3.Distance(m_Allie.position,m_Ennemy.position);
+			int finalDistance = -1;
+
+			int j, k;
+
+			Debug.Log ("Timon");
+			for (j = 0; j < m_DomDefDistance - 1 ; j++) {
+				if (distance < (float) m_IntervallesDistances [j]) {
+					finalDistance = j;
+					break;
+				}
+			}
+			Debug.Log ("Pumba");
+
 			Vector3 directionEnnemy = m_Ennemy.position - m_Allie.position;
 			Vector3 directionAllie = m_Allie.transform.forward;
 			float angle = Vector3.Angle(directionEnnemy, directionAllie); // - 360.0/(m_Quartier*2.0);
@@ -89,6 +111,7 @@ namespace Log {
 			int[] iC = {0,0,0};
 
 			float[] distancesC = { m_Radius + 1f, m_Radius + 1f, m_Radius + 1f };
+			int[] finalDistancesC = { 0, 0, 0};
 			int index = 0;
 
 			foreach (Collider collider in colliders)
@@ -103,7 +126,7 @@ namespace Log {
 				{
 					distancesC[index] = distanceC;
 					iC[index] = (int)Math.Floor(angleC / alpha);
-					for (int k = 0; k < distancesC.Length; k++)
+					for ( k = 0 ; k < distancesC.Length ; k++)
 					{
 						if (distancesC[k] > distancesC[index])
 						{
@@ -115,6 +138,19 @@ namespace Log {
 				// TODO trier distancesC (et iC en parallèle)
 			}
 
+
+			Debug.Log ("Hakuna");
+			for ( j = 0 ; j < m_DomDefDistColl1 - 1 ; j++ ) {
+				for ( k = 0 ; k < 3 ; k++ ) {
+					Debug.Log ("SnowFlake");
+					if (distancesC[k] < (float) m_IntervallesCollision[j]) {
+						finalDistancesC[k] = j;
+					}
+				}
+			}
+			Debug.Log ("Matata");
+
+			/*
 			if (distancesC [0] > m_Radius)
 				distancesC [0] = -1f;
 
@@ -122,12 +158,13 @@ namespace Log {
 				distancesC [1] = -1f;
 
 			if (distancesC [2] > m_Radius)
-				distancesC [2] = -1f;
+				distancesC [2] = -1f;*/
 				
 
 			colliders = Physics.OverlapSphere(m_Ennemy.position, m_RadiusShell, m_ShellMask);
 
 			float distanceS = m_RadiusShell + 1f;
+			int ennemyShell = 0;
 			int iS = -1;
 
 			foreach (Collider collider in colliders)
@@ -151,15 +188,15 @@ namespace Log {
 			}
 
 			if (iS != -1)
-				distanceS = 1f;
+				ennemyShell = 1;
 			else
-				distanceS = 0f;
+				ennemyShell = 0;
 
 			// Ajout des observtations
-			m_DistanceToEnnemy.Add(distance);
+			m_DistanceToEnnemy.Add(finalDistance);
 			m_DirectionToEnnemy.Add(i);
-			m_NearestColliders.Add (new Couple<float[], int[]> (distancesC, iC));
-			m_EnnemyShell.Add(new Couple<float, int>(distanceS, iS));
+			m_NearestColliders.Add (new Couple<int[], int[]> (finalDistancesC, iC));
+			m_EnnemyShell.Add(new Couple<int, int>(ennemyShell, iS));
 
 		}
 

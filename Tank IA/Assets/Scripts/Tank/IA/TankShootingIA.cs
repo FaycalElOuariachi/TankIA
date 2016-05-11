@@ -14,7 +14,7 @@ public class TankShootingIA : Shooting {
     private bool m_Fired;
 	private bool m_Charging;
 
-	private string m_IAPath = @"./Assets/Library/";
+	private string m_IAPath = ScenesParameters.m_IAPath;
 	private IIAShooting m_IAShooting;
 
     private void OnEnable()

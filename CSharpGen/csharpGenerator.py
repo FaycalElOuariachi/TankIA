@@ -4,7 +4,7 @@ from abstractGenerator import AbstractGenerator
 class CSharpGenerator(AbstractGenerator):   
   
   def initCpts(self):
-      res = "// Génération de \n"
+      res = "// Generation de \n"
       for i in self._bn.ids():
         list = str(self._bn.cpt(i).tolist())
         list.replace('[', '{', count = len(list))
@@ -42,11 +42,28 @@ class CSharpGenerator(AbstractGenerator):
     #return("  Ajout de la variable "+str(evid)+" au potentiel "+str(cliq)+"\n")
           
   def addSoftEvPot(self,evid,nompot,index,value):
-    return "  $"+str(nompot)+"= $evs['"+str(evid)+"'];\n"
+    return str(nompot)+'= evs["'+str(evid)+'"];\n'
     #return "Add soft evidence "+str(evid)+" in "+str(nompot)+"'index:"+str(index)+",value="+str(value)+")\n"
   
   def mulPotCpt(self,nompot, var,variables):
-    return("Multiplication du potentiel "+str(nompot)+" par la cpt de la variable "+str(var)+"\n")
+    R = len(variables)
+    res = ""
+    indexPot = ""
+    indexCpt = ""
+    cpt = CSharpGenerator.nameCpt(self._bn,int(var))
+
+    for i in range(R):
+      res += "  for($i"+str(i)+"=0;$i"+str(i)+"<"+str(self._bn.variable(variables[i]).domainSize())+";$i"+str(i)+"++)\n"
+      res += "  "*(i+1)
+      indexPot = "[$i"+str(i)+"]"+indexPot
+
+    for i in self._bn.cpt(int(var)).var_names:
+      id_var = self._bn.idFromName(i)
+      indexCpt += "[$i"+str(variables.index(id_var))+"]"
+
+    res += "  "+"$"+nompot+indexPot+" *= $"+str(cpt)+str(indexCpt)+";\n"
+    return res
+    #return("Multiplication du potentiel "+str(nompot)+" par la cpt de la variable "+str(var)+"\n")
   
   def mulPotPot(self, nompot1, nompot2, varPot1, varPot2):
     return("Multiplication du potentiel "+str(nompot1)+" par le potentiel "+str(nompot2)+"\n")
@@ -70,6 +87,6 @@ class CSharpGenerator(AbstractGenerator):
     return "//"
 
   def getSample(self,stream,evs,nameFunc,defs):
-    return "(On déinit ici un exemple de code utilisant la fonction)"
+    return "(On definit ici un exemple de code utilisant la fonction)"
     pass
     

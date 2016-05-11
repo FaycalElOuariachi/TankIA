@@ -18,6 +18,9 @@
 
 		}
 
+		virtual public void WriteDomaines() {
+		}
+
 		virtual public void captureFrame()
 		{
 

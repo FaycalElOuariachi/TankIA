@@ -13,7 +13,7 @@ public class TankMovementIA : Movement
     private float m_TurnInputValue;
     private float m_OriginalPitch;         
 
-	private string m_IAPath = @"./Assets/Library/";
+	private string m_IAPath = ScenesParameters.m_IAPath;
 	private IIAMovements m_IAMovement;
 
     private void Awake()

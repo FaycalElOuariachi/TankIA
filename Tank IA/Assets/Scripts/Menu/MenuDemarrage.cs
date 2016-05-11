@@ -256,15 +256,15 @@ public class MenuDemarrage : MonoBehaviour {
 
 		ScenesParameters.m_IATanks [0] = ia_players [0];
 		ScenesParameters.m_IATanks [1] = ia_players [1];
-		Debug.Log ("afficherok"+ScenesParameters.m_IATanks [0]);
+
 		//Application.LoadLevel(1);
 		SceneManager.LoadScene(1);
     }
 
-	public void replayGame( int numeroReplay)//string nameReplay)
+	public void replayGame( string nameReplay)
     {
 
-		ScenesParameters.m_GameNumber = numeroReplay + 1;
+		ScenesParameters.m_GameName = @"records" + Path.AltDirectorySeparatorChar + nameReplay;
 		//Debug.Log (numeroReplay + 1);//.Substring (4));
 		//Application.LoadLevel(1);
 		SceneManager.LoadScene(1);
@@ -337,7 +337,7 @@ public class MenuDemarrage : MonoBehaviour {
             if (GUI.Button(new Rect(Screen.width / 2 + 100, Screen.height / 2, 160, 30), "Start Replay"))
             {
 
-				replayGame ( choiceGame.value ); //choiceGame.itemText.text);
+				replayGame ( choiceGame.captionText.text);
 
             }
 

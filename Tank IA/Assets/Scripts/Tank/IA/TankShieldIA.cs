@@ -12,7 +12,7 @@ public class TankShieldIA : Shield {
     private float m_DeltaTime;
     private string m_ShieldButton;
 
-	private string m_IAPath = @"./Assets/Library/";
+	private string m_IAPath = ScenesParameters.m_IAPath;
 	private IIAShield m_IAShield;
    
  

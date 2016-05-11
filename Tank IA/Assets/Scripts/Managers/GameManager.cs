@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 	 * Replay Manager   		: replay manager, à instancier ou non
 	 * 
 	 * Player Mask		   		: Mask des joueurs
+	 * m_MaskOn					: Booleen indiquant si c'est un replay
 	 * 
 	 * --- Variables d'indication de mode (normal, replay, record)
 	 * Has Recorder          : booléen indiquant la présence de Recorders
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
 	public ReplayManager m_ReplayManager = null;
 
 	public LayerMask m_PlayerMask;
+	public bool m_MaskOn = false;
 
 	public bool m_HasRecorder = true;
 	public int m_GameNumber = -1;  
@@ -110,7 +112,11 @@ public class GameManager : MonoBehaviour
 
 		if (ScenesParameters.m_GameName != "") {
 			m_GameName = ScenesParameters.m_GameName;
-			Physics.IgnoreLayerCollision(m_PlayerMask, m_PlayerMask, true);
+			if (m_MaskOn) {
+				
+				Physics.IgnoreLayerCollision (m_PlayerMask, m_PlayerMask, true);
+			}
+
 		}
 
 		m_IATanks = ScenesParameters.m_IATanks;
