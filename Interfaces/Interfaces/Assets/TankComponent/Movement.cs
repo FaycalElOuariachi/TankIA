@@ -20,6 +20,7 @@ namespace Interfaces {
 		public Dictionary<int, Vector3> m_PositionOrders = new Dictionary<int, Vector3>();
 		[HideInInspector]
 		public Dictionary<int, Quaternion> m_RotationOrders = new Dictionary<int, Quaternion>();
+		[HideInInspector] public int m_TimeReference;
 	}
 }
 

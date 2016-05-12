@@ -2,7 +2,7 @@
 
 	public class ILog { //: MonoBehaviour {
 
-
+		[HideInInspector] public int m_TimeReference;
 		public int m_PlayerNumber;
 		public string m_PathLog;
 

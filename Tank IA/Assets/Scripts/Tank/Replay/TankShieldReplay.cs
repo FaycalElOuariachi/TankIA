@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Interfaces;
 
 public class TankShieldReplay : Shield {
-
     private GameObject m_Shield;
     private float m_DeltaTime;
 
@@ -45,7 +44,7 @@ public class TankShieldReplay : Shield {
 
     public void Activate()
     {
-        if (m_IsEnable && !m_IsActivate && m_ShieldOrders.ContainsKey(Time.frameCount))
+		if (m_IsEnable && !m_IsActivate && m_ShieldOrders.ContainsKey(Time.frameCount - m_TimeReference))
         {
             m_Shield.SetActive(true);
             m_IsActivate = true;

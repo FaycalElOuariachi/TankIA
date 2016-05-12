@@ -25,6 +25,7 @@ namespace Log {
 		 * m_NearestColliders			: 
 		 * m_EnnemyShell				: 
 		 */
+		private List<int> m_Frames = new List<int> ();
 		private List<int> m_DistanceToEnnemy = new List<int> (); // variable distance
 		private List<int> m_DirectionToEnnemy = new List<int> (); // variable i
 		private List<Couple<int[],int[]>> m_NearestColliders = new List<Couple<int[],int[]>>(); // varaibles distancesC, iC
@@ -85,14 +86,12 @@ namespace Log {
 
 			int j, k;
 
-			Debug.Log ("Timon");
 			for (j = 0; j < m_DomDefDistance - 1 ; j++) {
 				if (distance < (float) m_IntervallesDistances [j]) {
 					finalDistance = j;
 					break;
 				}
 			}
-			Debug.Log ("Pumba");
 
 			Vector3 directionEnnemy = m_Ennemy.position - m_Allie.position;
 			Vector3 directionAllie = m_Allie.transform.forward;
@@ -138,28 +137,13 @@ namespace Log {
 				// TODO trier distancesC (et iC en parallèle)
 			}
 
-
-			Debug.Log ("Hakuna");
 			for ( j = 0 ; j < m_DomDefDistColl1 - 1 ; j++ ) {
 				for ( k = 0 ; k < 3 ; k++ ) {
-					Debug.Log ("SnowFlake");
 					if (distancesC[k] < (float) m_IntervallesCollision[j]) {
 						finalDistancesC[k] = j;
 					}
 				}
-			}
-			Debug.Log ("Matata");
-
-			/*
-			if (distancesC [0] > m_Radius)
-				distancesC [0] = -1f;
-
-			if (distancesC [1] > m_Radius)
-				distancesC [1] = -1f;
-
-			if (distancesC [2] > m_Radius)
-				distancesC [2] = -1f;*/
-				
+			}				
 
 			colliders = Physics.OverlapSphere(m_Ennemy.position, m_RadiusShell, m_ShellMask);
 
@@ -197,6 +181,7 @@ namespace Log {
 			m_DirectionToEnnemy.Add(i);
 			m_NearestColliders.Add (new Couple<int[], int[]> (finalDistancesC, iC));
 			m_EnnemyShell.Add(new Couple<int, int>(ennemyShell, iS));
+			m_Frames.Add (Time.frameCount - m_TimeReference);
 
 		}
 

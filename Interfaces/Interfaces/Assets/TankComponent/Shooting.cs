@@ -17,6 +17,7 @@ namespace Interfaces {
 		public float m_MaxChargeTime = 0.75f;
 		[HideInInspector]
 		public Dictionary<int, int> m_FireOrders;
+		[HideInInspector] public int m_TimeReference;
 
 		protected float m_ChargeSpeed;
 		protected float m_CurrentLaunchForce;

@@ -14,6 +14,7 @@ public class TankMovementReplay : Movement
 	private Vector3 m_Position;
 	private Quaternion m_Rotation;
 	private bool m_IsMoving = false;
+	private bool m_IsTurning= false;
 
     private void Awake()
     {
@@ -45,8 +46,8 @@ public class TankMovementReplay : Movement
 
     private void Update()
 	{
-		m_IsMoving = m_PositionOrders.TryGetValue (Time.frameCount, out m_Position);
-		m_RotationOrders.TryGetValue (Time.frameCount, out m_Rotation);
+		m_IsMoving = m_PositionOrders.TryGetValue (Time.frameCount - m_TimeReference, out m_Position);
+		m_IsTurning = m_RotationOrders.TryGetValue (Time.frameCount - m_TimeReference, out m_Rotation);
 
         EngineAudio();
     }
@@ -87,7 +88,8 @@ public class TankMovementReplay : Movement
 	private void SetLocation() {
 		if (m_IsMoving)
 			m_Rigidbody.MovePosition (m_Position);
-		m_Rigidbody.MoveRotation (m_Rotation);
+		if (m_IsTurning)
+			m_Rigidbody.MoveRotation (m_Rotation);
 	}
 
 	private void Move()

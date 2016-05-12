@@ -46,4 +46,10 @@ public class RecorderManager : MonoBehaviour {
 		m_Recorder.Reset ();
 		m_Instance.SetActive(true);
 	}
+
+	public void OnDestroy() {
+		for (int i = 0; i < 2; i++)
+			m_Recorder.Reset ();
+		UnityEngine.Object.Destroy (m_Recorder);
+	}
 }

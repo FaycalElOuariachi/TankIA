@@ -3,10 +3,12 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Interfaces\Assets\Log\ILog.cs">
     <Files>
       <File FileName="Interfaces\Assets\ITankManager.cs" Line="1" Column="1" />
-      <File FileName="Interfaces\Assets\Log\ILog.cs" Line="22" Column="4" />
-      <File FileName="Interfaces\Assets\TankComponent\Health.cs" Line="1" Column="1" />
-      <File FileName="Interfaces\Assets\TankComponent\Movement.cs" Line="1" Column="1" />
+      <File FileName="Interfaces\Assets\Log\ILog.cs" Line="5" Column="48" />
+      <File FileName="Interfaces\Assets\TankComponent\Health.cs" Line="15" Column="47" />
+      <File FileName="Interfaces\Assets\TankComponent\Movement.cs" Line="23" Column="47" />
       <File FileName="Interfaces\Assets\IAInterfaces\IIAMovements.cs" Line="25" Column="21" />
+      <File FileName="Interfaces\Assets\TankComponent\Shield.cs" Line="16" Column="47" />
+      <File FileName="Interfaces\Assets\TankComponent\Shooting.cs" Line="20" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

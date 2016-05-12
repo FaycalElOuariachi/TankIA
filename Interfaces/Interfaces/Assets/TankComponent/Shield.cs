@@ -13,5 +13,6 @@ namespace Interfaces {
 		public bool m_IsActivate = false;
 		[HideInInspector]
 		public Dictionary<int, float> m_ShieldOrders;
+		[HideInInspector] public int m_TimeReference;
 	}
 }

@@ -94,6 +94,7 @@ public class GameManager : MonoBehaviour
 	private int m_RoundNumber;  
 	private TankManager m_RoundWinner;
 	private TankManager m_GameWinner;      
+	private int m_TimeReference;
 
     
 	/**
@@ -106,17 +107,17 @@ public class GameManager : MonoBehaviour
 	 */
     private void Start()
     {
+		m_TimeReference = Time.frameCount + 20;
 		m_HasRecorder = ScenesParameters.m_HasRecorder;
 		if (ScenesParameters.m_GameNumber != -1)
 			m_GameNumber = ScenesParameters.m_GameNumber;
 
 		if (ScenesParameters.m_GameName != "") {
+			m_HasRecorder = false;
 			m_GameName = ScenesParameters.m_GameName;
-			if (m_MaskOn) {
-				
+			/*if (m_MaskOn) {
 				Physics.IgnoreLayerCollision (m_PlayerMask, m_PlayerMask, true);
-			}
-
+			}*/
 		}
 
 		m_IATanks = ScenesParameters.m_IATanks;
@@ -174,6 +175,7 @@ public class GameManager : MonoBehaviour
 					Instantiate (m_TankReplayPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
 				m_Tanks [i].m_RecorderPath = m_RecorderPath;
 				m_Tanks [i].m_isReplay = true;
+				m_Tanks [i].m_TimeReference = m_TimeReference;
 			}
 			// Sinon, si une IA a été sélectinner (dans ScenesParameters)
 			else if (m_IATanks [i] != "") {
@@ -216,6 +218,7 @@ public class GameManager : MonoBehaviour
 			m_Loggers [i].m_Instance = Instantiate (m_LoggerPrefab) as GameObject;
 			m_Loggers [i].Setup ();
 			m_Loggers [i].SetTank(m_Tanks [i], m_Tanks[(i+1)%2]);
+			m_Loggers [i].m_TimeReference = m_TimeReference;
 		}
 	}
 
@@ -249,9 +252,10 @@ public class GameManager : MonoBehaviour
 			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			if (m_ReplayManager != null) {
 				m_ReplayManager.setGo ();
-				Destroy (this.gameObject);
+				Destroy (this);
 			}
-			SceneManager.LoadScene(0);
+			if (m_ReplayManager == null)
+				SceneManager.LoadScene(0);
         }
         else
         {
@@ -336,8 +340,10 @@ public class GameManager : MonoBehaviour
 
 		m_GameWinner = GetGameWinner ();
 
-		string message = EndMessage ();
-		m_MessageText.text = message;
+		if (m_ReplayManager == null) {
+			string message = EndMessage ();
+			m_MessageText.text = message;
+		}
 
 
 		if (m_HasRecorder) {
@@ -392,6 +398,24 @@ public class GameManager : MonoBehaviour
 	 */
     private TankManager GetGameWinner()
     {
+		// Si l'on est en replay, et qu'il n'y a plus de round d'enregistré
+		if (m_GameName != "" &&
+		    !File.Exists (m_GameName + Path.AltDirectorySeparatorChar + "Round" + (m_RoundNumber + 1) + "_1ascii.IArec")) {
+			TankManager max = m_Tanks[0];
+			for (int i = 0; i < m_Tanks.Length; i++) {
+				if (m_Tanks [i].m_Wins > max.m_Wins)
+					max = m_Tanks [i];
+			}
+			if (m_Tanks [0].m_Wins == m_Tanks [1].m_Wins) {
+				return null;
+			} else {
+				return max;
+			}
+		}
+
+		
+			
+
         for (int i = 0; i < m_Tanks.Length; i++)
         {
             if (m_Tanks[i].m_Wins == m_NumRoundsToWin)
@@ -421,8 +445,12 @@ public class GameManager : MonoBehaviour
             message += m_Tanks[i].m_ColoredPlayerText + ": " + m_Tanks[i].m_Wins + " WINS\n";
         }
 
-        if (m_GameWinner != null)
-            message = m_GameWinner.m_ColoredPlayerText + " WINS THE GAME!";
+		if (m_GameWinner != null)
+			message = m_GameWinner.m_ColoredPlayerText + " WINS THE GAME!";
+		else if (!File.Exists (m_GameName + Path.AltDirectorySeparatorChar + "Round" + (m_RoundNumber + 1) + "_1ascii.IArec")) {
+			message = "Replay Finished\nDRAW";
+			m_GameWinner = m_Tanks [0];
+		}
 
         return message;
     }
@@ -529,4 +557,15 @@ public class GameManager : MonoBehaviour
 	public void setReplayManager( ReplayManager replayManager ) {
 		m_ReplayManager = replayManager;
 	}
+
+	public void OnDestroy() {
+		for (int i = 0; i < 2; i++) {
+			Destroy (m_Tanks [i].m_Instance, 0.1f);
+			m_Loggers [i].OnDestroy();
+			//m_Tanks [i].OnDestroy();
+			m_Recorders [i].OnDestroy();
+		}
+	}
+
+
 }

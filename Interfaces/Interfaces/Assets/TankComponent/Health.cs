@@ -12,6 +12,7 @@ namespace Interfaces {
 	    public Color m_ZeroHealthColor = Color.red;    
 	    public GameObject m_ExplosionPrefab;
 		[HideInInspector] public Dictionary<int, float> m_HealthOrders = new Dictionary<int, float>();
+		[HideInInspector] public int m_TimeReference;
 
 		protected float m_CurrentHealth;
 

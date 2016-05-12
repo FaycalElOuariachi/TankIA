@@ -6,7 +6,7 @@ using Interfaces;
 using System;
 
 public class Logger : MonoBehaviour {
-
+	[HideInInspector] public int m_TimeReference;
 	public int m_PlayerNumber = 1;
 	public LayerMask collisionMask;
 	public LayerMask shellMask;
@@ -20,6 +20,7 @@ public class Logger : MonoBehaviour {
 	public void Setup () {
 		LoadLogger ();
 		m_Logger.m_PlayerNumber = m_PlayerNumber;
+		m_Logger.m_TimeReference = m_TimeReference;
 		m_Logger.m_PathLog = m_PathLog;
 		m_Logger.setMask (collisionMask, shellMask);
 		m_Logger.Setup ();

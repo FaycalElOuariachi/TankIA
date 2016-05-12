@@ -6,10 +6,9 @@ using System.Collections.Generic;
 using Interfaces;
 
 public class TankShootingReplay : Shooting {
-
     //private float m_CurrentLaunchForce;
     //private float m_ChargeSpeed;
-    private bool m_Fired;
+    private bool m_Fired = false;
 
 
     private void OnEnable()
@@ -37,12 +36,12 @@ public class TankShootingReplay : Shooting {
         int input = 3;
       
         if (m_CurrentLaunchForce >= m_MaxLaunchForce && !m_Fired)
-        {
+		{
             m_CurrentLaunchForce = m_MaxLaunchForce;
             Fire();
         }
-        else if (m_FireOrders.TryGetValue(Time.frameCount, out input))
-        {
+		else if (m_FireOrders.TryGetValue(Time.frameCount - m_TimeReference, out input))
+		{
 
             if (input == 0)
             {
@@ -60,7 +59,7 @@ public class TankShootingReplay : Shooting {
             }
             else if (input == 2 && !m_Fired)
             {
-                Fire();
+				Fire();
             }
         }
     }

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Interfaces;
 
 public class TankHealthReplay : Health {
-
 	/*
 	 private float m_CurrentHealth;  
 	 */
@@ -16,7 +15,7 @@ public class TankHealthReplay : Health {
 
 
     private void Awake()
-    {
+	{
         m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
         m_ExplosionAudio = m_ExplosionParticles.GetComponent<AudioSource>();
 
@@ -25,19 +24,17 @@ public class TankHealthReplay : Health {
 
 
     private void OnEnable()
-    {
-        m_CurrentHealth = m_StartingHealth;
+	{
+		m_CurrentHealth = m_StartingHealth;
 		m_Dead = false;
 
         SetHealthUI();
     }
     
-	public void update() {
+	private void Update() {
 		float newHealth;
-		Debug.Log ("Timon");
 
-		if (m_HealthOrders.TryGetValue (Time.frameCount, out newHealth) && m_CurrentHealth != newHealth) {
-			Debug.Log (m_CurrentHealth - newHealth);
+		if (m_HealthOrders.TryGetValue (Time.frameCount - m_TimeReference, out newHealth) && m_CurrentHealth != newHealth) {
 			TakeDamage2 (m_CurrentHealth - newHealth);
 		}
 	}
