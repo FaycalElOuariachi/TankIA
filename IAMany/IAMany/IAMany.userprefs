@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="IAMany\IAMany.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IAMany\Many.cs">
+    <Files>
+      <File FileName="IAMany\IAMovements.cs" Line="15" Column="18" />
+      <File FileName="IAMany\IAShield.cs" Line="18" Column="18" />
+      <File FileName="IAMany\IAShooting.cs" Line="18" Column="18" />
+      <File FileName="IAMany\ProbaMany.cs" Line="20" Column="3" />
+      <File FileName="IAMany\Many.cs" Line="12" Column="52" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

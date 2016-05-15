@@ -268,8 +268,6 @@ public class MenuDemarrage : MonoBehaviour {
 		//Debug.Log (numeroReplay + 1);//.Substring (4));
 		//Application.LoadLevel(1);
 		SceneManager.LoadScene(1);
-        
-
     }
 
     public void quitGame()

@@ -20,6 +20,10 @@ namespace Log {
 		private LayerMask m_ShellMask;
 
 		/**
+		 * m_ActionsTime				: Liste des frames où une ou plusieurs actions ont été faites
+		 * m_Actions					: Liste des valeurs des actions
+		 * m_ActionsType				: Liste des types d'actions
+		 * 
 		 * m_DistanceToEnnemy		: Liste des distances à l'ennemi
 		 * m_DirectionToEnnemy		: 
 		 * m_NearestColliders			: 
@@ -33,28 +37,28 @@ namespace Log {
 
 		private string m_SpaceChara = ",";
 
-		private string m_NameDistance = "distance";
+		private string m_NameDistance = "distance?";
 		private int m_DomDefDistance = 4;
 		private int[] m_IntervallesDistances = { 20, 60, 120};
 
-		private string m_NameDirection = "direction";
+		private string m_NameDirection = "direction?";
 		private int m_DomDefDirection = m_Quartier;
 
-		private string m_NameDistColl1 = "dist_coll_1";
+		private string m_NameDistColl1 = "dist_coll_1?";
 		private int m_DomDefDistColl1 = 3;
-		private string m_NameDirColl1 = "dir_coll_1";
+		private string m_NameDirColl1 = "dir_coll_1?";
 		private int m_DomDefDirColl1 = m_Quartier;
-		private string m_NameDistColl2 = "dist_coll_2";
+		private string m_NameDistColl2 = "dist_coll_2?";
 		private int m_DomDefDistColl2 = 3;
-		private string m_NameDirColl2 = "dir_coll_2";
+		private string m_NameDirColl2 = "dir_coll_2?";
 		private int m_DomDefDirColl2 = m_Quartier;
-		private string m_NameDistColl3 = "dist_coll_3";
+		private string m_NameDistColl3 = "dist_coll_3?";
 		private int m_DomDefDistColl3 = 3;
-		private string m_NameDirColl3 = "dir_coll_3";
+		private string m_NameDirColl3 = "dir_coll_3?";
 		private int m_DomDefDirColl3 = m_Quartier;
 		private int[] m_IntervallesCollision = { 10, 30};
 
-		private string m_NameDistShell = "dist_shell";
+		private string m_NameDistShell = "dist_shell?";
 		private int m_DomDefDistShell = 2;
 
 
@@ -193,12 +197,108 @@ namespace Log {
 				new StreamWriter (m_PathLog + Path.AltDirectorySeparatorChar + "Game" + m_GameCounter + Path.AltDirectorySeparatorChar + "Round" + m_RoundCounter + "_" + m_PlayerNumber + ".ASCIIlog")) {
 				file.WriteLine (WriteEntete());
 				string line = "";
+
+				bool flagM;
+				bool flagT;
+				bool flagF;
+				bool flagS;
+
 				for ( int i = 0 ; i < m_DistanceToEnnemy.Count ; i++) {
 					line = m_DistanceToEnnemy [i].ToString () + m_SpaceChara + m_DirectionToEnnemy [i].ToString () + m_SpaceChara;
 					for (int j = 0 ; j < nbColl ; j++) {
 						line += m_NearestColliders [i].First [j].ToString() + m_SpaceChara + m_NearestColliders [i].Second [j].ToString() + m_SpaceChara;
 					}
 					line += m_EnnemyShell [i].First.ToString();// + m_SpaceChara + m_EnnemyShell [i].Second.ToString();
+
+					flagM = false;
+					flagT = false;
+					flagF = false;
+					flagS = false;
+
+					while (m_ActionsTime.Count != 0 && m_ActionsTime [0] < m_Frames [i]) {
+						m_ActionsTime.RemoveAt(0);
+						m_Actions.RemoveAt(0);
+						m_ActionsType.RemoveAt(0);
+					}
+
+					while (m_ActionsTime.Count != 0 && m_ActionsTime[0] == m_Frames[i]) {
+						switch(m_ActionsType[0]) {
+						case 'M':
+							if (m_Actions [0] > 0f) {
+								line += m_SpaceChara + "1";
+							} else if (m_Actions [0] < 0f) {
+								line += m_SpaceChara + "-1";
+							} else {
+								line += m_SpaceChara + "0";
+							}
+							flagM = true;
+							break;
+						case 'T':
+							if (!flagM) {
+								line += m_SpaceChara + "0";
+								flagM = true;
+							}
+							
+							if (m_Actions [0] > 0f) {
+								line += m_SpaceChara + "1";
+							} else if (m_Actions [0] < 0f) {
+								line += m_SpaceChara + "-1";
+							} else {
+								line += m_SpaceChara + "0";
+							}
+							flagT = true;
+							break;
+						case 'F':
+							if (!flagM) {
+								line += m_SpaceChara + "0";
+								flagM = true;
+							}
+							if (!flagT) {
+								line += m_SpaceChara + "0";
+								flagT = true;
+							}
+
+							line += m_SpaceChara + (int) m_Actions[0];
+							flagF = true;
+							break;
+						case 'S':
+							if (!flagM) {
+								line += m_SpaceChara + "0";
+								flagM = true;
+							}
+							if (!flagT) {
+								line += m_SpaceChara + "0";
+								flagT = true;
+							}
+							if (!flagF) {
+								line += m_SpaceChara + "0";
+								flagF = true;
+							}
+							
+							line += m_SpaceChara + "1";
+							flagS = true;
+							break;
+						}
+						m_ActionsTime.RemoveAt(0);
+						m_Actions.RemoveAt(0);
+						m_ActionsType.RemoveAt(0);
+					}
+					int l;
+					if (!flagM)
+						l = 3;
+					else if (!flagT)
+						l = 2;
+					else if (!flagF)
+						l = 1;
+					else if (!flagS)
+						l = 0;
+					else
+						l = -1;
+
+					for ( int k = 0 ; k <= l ; k++ ) {  
+						line += m_SpaceChara + "0";
+					}
+
 					file.WriteLine(line);
 				}
 			}
@@ -206,7 +306,8 @@ namespace Log {
 
 		private string WriteEntete() {
 			return m_NameDistance + m_SpaceChara + m_NameDirection + m_SpaceChara + m_NameDistColl1 + m_SpaceChara + m_NameDirColl1 + m_SpaceChara + m_NameDistColl2 + m_SpaceChara + m_NameDirColl2 
-				+ m_SpaceChara + m_NameDistColl3 + m_SpaceChara + m_NameDirColl3 + m_SpaceChara + m_NameDistShell;// + + "dir_shell" ;
+				+ m_SpaceChara + m_NameDistColl3 + m_SpaceChara + m_NameDirColl3 + m_SpaceChara + m_NameDistShell + m_SpaceChara
+				+ "move?" + m_SpaceChara + "turn?" + m_SpaceChara + "shell?" + m_SpaceChara + "shield?";// + + "dir_shell" ;
 		}
 
 		// Binary Writer
@@ -257,6 +358,9 @@ namespace Log {
 			m_DirectionToEnnemy.Clear ();
 			m_NearestColliders.Clear ();
 			m_EnnemyShell.Clear ();
+			m_ActionsTime.Clear ();
+			m_Actions.Clear ();
+			m_ActionsType.Clear ();
 		}
 
 	}

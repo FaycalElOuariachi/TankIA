@@ -47,6 +47,7 @@
     <Compile Include="Assets\IAInterfaces\IIAShield.cs" />
     <Compile Include="Assets\ITankManager.cs" />
     <Compile Include="Assets\Log\ILog.cs" />
+    <Compile Include="Assets\IAInterfaces\IATank.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

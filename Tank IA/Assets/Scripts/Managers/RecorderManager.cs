@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Interfaces;
 
 public class RecorderManager : MonoBehaviour {
 
@@ -51,5 +52,17 @@ public class RecorderManager : MonoBehaviour {
 		for (int i = 0; i < 2; i++)
 			m_Recorder.Reset ();
 		UnityEngine.Object.Destroy (m_Recorder);
+	}
+
+	public void setLog(ILog log) {
+		m_Recorder.m_Log = log;
+	}
+		
+	public void setActionsToLog() {
+		m_Recorder.setActionsToLog ();
+	}
+
+	public void setTimeReference(int timeReference) {
+		m_Recorder.m_TimeReference = timeReference;
 	}
 }

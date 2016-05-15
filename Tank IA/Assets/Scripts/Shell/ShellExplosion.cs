@@ -25,7 +25,6 @@ public class ShellExplosion : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
 		{
-			Debug.Log ("OUIII");
 			Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
 			if (colliders [i].GetComponent<Shield> ().m_PlayerNumber == m_PlayerNumber) {
 				return;

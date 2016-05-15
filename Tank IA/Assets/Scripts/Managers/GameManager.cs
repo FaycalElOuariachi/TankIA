@@ -109,6 +109,9 @@ public class GameManager : MonoBehaviour
     {
 		m_TimeReference = Time.frameCount + 20;
 		m_HasRecorder = ScenesParameters.m_HasRecorder;
+
+		//ScenesParameters.m_GameName = ""; // Force à ne pas rejouer de replay
+
 		if (ScenesParameters.m_GameNumber != -1)
 			m_GameNumber = ScenesParameters.m_GameNumber;
 
@@ -121,6 +124,9 @@ public class GameManager : MonoBehaviour
 		}
 
 		m_IATanks = ScenesParameters.m_IATanks;
+
+		// Forcer à ne pas utiliser d'IA
+		//m_IATanks[0] = m_IATanks[1] = "";
 
         m_StartWait = new WaitForSeconds(m_StartDelay);
 		m_EndWait = new WaitForSeconds(m_EndDelay);
@@ -143,19 +149,19 @@ public class GameManager : MonoBehaviour
 				m_MessageText.text = "Incorrect Number of tanks";
 			}
 
-			// Forcer à ne pas utiliser d'IA
-			//m_IATanks[0] = m_IATanks[1] = "";
 		}
 
 		SpawnAllTanks();
-        SetCameraTargets();
-
-		if (m_HasRecorder)
-			SetAllRecorders();
+		SetCameraTargets();
 
 		if (ScenesParameters.m_Logger != "") {
 			SetAllLoggers ();
 		}
+
+		if (m_HasRecorder || ScenesParameters.m_Logger != "") {
+			SetAllRecorders ();
+		}
+
 
         StartCoroutine(GameLoop());
     }
@@ -203,6 +209,10 @@ public class GameManager : MonoBehaviour
 			m_Recorders [i].m_Instance = Instantiate (m_RecorderPrefab) as GameObject;
 			m_Recorders [i].Setup ();
 			m_Recorders [i].SetTankInstance(m_Tanks [i]);
+			m_Recorders [i].setTimeReference (m_TimeReference);
+			if (ScenesParameters.m_Logger != "") {
+				m_Recorders [i].setLog(m_Loggers [i].m_Logger.m_Logger);
+			}
 		}
 	}
 
@@ -218,7 +228,7 @@ public class GameManager : MonoBehaviour
 			m_Loggers [i].m_Instance = Instantiate (m_LoggerPrefab) as GameObject;
 			m_Loggers [i].Setup ();
 			m_Loggers [i].SetTank(m_Tanks [i], m_Tanks[(i+1)%2]);
-			m_Loggers [i].m_TimeReference = m_TimeReference;
+			m_Loggers [i].setTimeReference(m_TimeReference);
 		}
 	}
 
@@ -298,11 +308,12 @@ public class GameManager : MonoBehaviour
 	 * • Supprime le message du pré-rounds
 	 */
     private IEnumerator RoundPlaying()
-    {
+	{
 		EnableTankControl ();
 
 		if (m_HasRecorder)
 			EnableRecorderControl ();
+
 
 		if (ScenesParameters.m_Logger != "")
 			EnableLoggerControl ();
@@ -322,12 +333,12 @@ public class GameManager : MonoBehaviour
 	 * • Affiche un message en conséquence
 	 */
     private IEnumerator RoundEnding()
-    {
+	{
 		DisableTankControl ();
 
 		if (m_HasRecorder)
 			DisableRecorderControl ();
-		
+
 		if (ScenesParameters.m_Logger != "")
 			DisableLoggerControl ();
 
@@ -356,6 +367,7 @@ public class GameManager : MonoBehaviour
 		if (ScenesParameters.m_Logger != "") {
 			// Write into a file the action Player
 			for (int i = 0; i < m_Loggers.Length; i++) {
+				m_Recorders[i].setActionsToLog();
 				m_Loggers[i].WriteLog ();
 			}
 		}
@@ -447,7 +459,7 @@ public class GameManager : MonoBehaviour
 
 		if (m_GameWinner != null)
 			message = m_GameWinner.m_ColoredPlayerText + " WINS THE GAME!";
-		else if (!File.Exists (m_GameName + Path.AltDirectorySeparatorChar + "Round" + (m_RoundNumber + 1) + "_1ascii.IArec")) {
+		else if (m_GameName != "" && !File.Exists (m_GameName + Path.AltDirectorySeparatorChar + "Round" + (m_RoundNumber + 1) + "_1ascii.IArec")) {
 			message = "Replay Finished\nDRAW";
 			m_GameWinner = m_Tanks [0];
 		}

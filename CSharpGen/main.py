@@ -9,7 +9,7 @@ sequenceOfInstructions=[['CPO', 'TRXTBH', [2, 3], 1.0], ['CPO', 'FCPPAV', [2, 6,
 #### GENERATION DE CSHAPR ####
 from csharpGenerator import CSharpGenerator
 generator = CSharpGenerator()
-filename="samplecode.csharp"
+filename="samplecode.cs"
 
 import pyAgrum as gum
 

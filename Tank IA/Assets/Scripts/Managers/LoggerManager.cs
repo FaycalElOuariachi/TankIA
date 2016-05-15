@@ -21,13 +21,12 @@ public class LoggerManager : MonoBehaviour {
 	public GameObject m_Instance;
 	[HideInInspector] public int m_TimeReference;
 
-	private Logger m_Logger;
+	[HideInInspector] public Logger m_Logger;
 
 	// Use this for initialization
 	public void Setup () {
 		m_Logger = m_Instance.GetComponent<Logger> ();
 		m_Logger.m_PlayerNumber = m_PlayerNumber;
-		m_Logger.m_TimeReference = m_TimeReference;
 		m_Logger.Setup ();
 	}
 
@@ -61,6 +60,10 @@ public class LoggerManager : MonoBehaviour {
 	public void OnDestroy() {
 		m_Logger.Reset ();
 		UnityEngine.Object.Destroy (m_Logger);
+	}
+
+	public void setTimeReference(int time) {
+		m_Logger.setTimeReference(time);
 	}
 
 }

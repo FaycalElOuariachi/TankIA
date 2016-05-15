@@ -10,6 +10,8 @@ public class Recorder : MonoBehaviour {
 	public string m_PathRecorder;
 	[HideInInspector] public int m_PlayerNumber = 1;
 	[HideInInspector] public TankManager m_TankManager;
+	[HideInInspector] public ILog m_Log = null;
+	[HideInInspector] public int m_TimeReference;
 
 	private string m_MovementAxisName;
 	private string m_TurnAxisName;
@@ -41,7 +43,7 @@ public class Recorder : MonoBehaviour {
 		m_TurnAxisName = "Horizontal" + m_PlayerNumber;
 		m_FireButton = "Fire" + m_PlayerNumber;
 		m_ShieldButton = "Shield" + m_PlayerNumber;
-		m_PathRecorder = @"records";
+		m_PathRecorder = "records";
 		Directory.CreateDirectory(m_PathRecorder);
 		m_GameCounter = Directory.GetDirectories (m_PathRecorder).Length + 1;
 	}
@@ -69,12 +71,12 @@ public class Recorder : MonoBehaviour {
 
 		// Add movements to log
 		if (m_MovementInputValue != 0) {
-			m_ActionsTime.Add (Time.frameCount);
+			m_ActionsTime.Add (Time.frameCount - m_TimeReference);
 			m_ActionsType.Add ('M');
 			m_Actions.Add (m_MovementInputValue);
 		}
 		if (m_TurnInputValue != 0) {
-			m_ActionsTime.Add (Time.frameCount);
+			m_ActionsTime.Add (Time.frameCount - m_TimeReference);
 			m_ActionsType.Add ('T');
 			m_Actions.Add (m_TurnInputValue);
 		}
@@ -87,17 +89,17 @@ public class Recorder : MonoBehaviour {
 		 * 2 : Button Up
 		 */
 		if (Input.GetButtonDown (m_FireButton)) {
-			m_ActionsTime.Add (Time.frameCount);
+			m_ActionsTime.Add (Time.frameCount - m_TimeReference);
 			m_ActionsType.Add ('F');
 			m_Actions.Add (0f);
 		}
 		else if (Input.GetButton (m_FireButton)) {
-			m_ActionsTime.Add (Time.frameCount);
+			m_ActionsTime.Add (Time.frameCount - m_TimeReference);
 			m_ActionsType.Add ('F');
 			m_Actions.Add (1f);
 		}
 		else if (Input.GetButtonUp (m_FireButton)) {
-			m_ActionsTime.Add (Time.frameCount);
+			m_ActionsTime.Add (Time.frameCount - m_TimeReference);
 			m_ActionsType.Add ('F');
 			m_Actions.Add (2f);
 		}
@@ -107,7 +109,7 @@ public class Recorder : MonoBehaviour {
 		 * The value add to m_Actions isn't significant
 		 */
 		if (Input.GetButtonDown (m_ShieldButton)) {
-			m_ActionsTime.Add (Time.frameCount);
+			m_ActionsTime.Add (Time.frameCount - m_TimeReference);
 			m_ActionsType.Add ('S');
 			m_Actions.Add (0f);
 		}
@@ -122,14 +124,14 @@ public class Recorder : MonoBehaviour {
 
 		//if (m_PreviousHealth != currentHealth) {
 			m_Health.Add (currentHealth);
-			m_HealthTime.Add (Time.frameCount);
+		m_HealthTime.Add (Time.frameCount - m_TimeReference);
 			//m_PreviousHealth = currentHealth;
 		//}
 
 		/*if (m_TransformsPosition.Count != 0 && pos.Equals(m_TransformsPosition[m_TransformsPosition.Count-1]) && rot.Equals(m_TransformsRotation[m_TransformsPosition.Count-1])) {
 			return;
 		}*/
-		m_TransformsTime.Add (Time.frameCount);
+		m_TransformsTime.Add (Time.frameCount - m_TimeReference);
 		m_TransformsPosition.Add (pos);
 		m_TransformsRotation.Add (rot);
 	}
@@ -206,5 +208,11 @@ public class Recorder : MonoBehaviour {
 		m_TransformsPosition.Clear ();
 		m_TransformsRotation.Clear ();
 		m_TransformsTime.Clear ();
+	}
+
+	public void setActionsToLog() {
+		if (m_Log != null) {
+			m_Log.setActions (m_ActionsTime, m_Actions, m_ActionsType);
+		}
 	}
 }

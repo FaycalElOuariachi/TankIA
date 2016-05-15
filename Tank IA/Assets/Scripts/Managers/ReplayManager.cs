@@ -50,7 +50,6 @@ public class ReplayManager: MonoBehaviour
 		//foreach (string replay in directories) {
 			string replay = directories[i];
 			if (m_Counter >= m_MaxReplay) {
-				Debug.Log (replay);
 				m_Go = false;
 				return;
 			}
@@ -80,11 +79,9 @@ public class ReplayManager: MonoBehaviour
 		string replay = directories[m_CountGames];
 		m_CountGames++;
 		/*if (m_Counter >= m_MaxReplay) {
-				Debug.Log (replay);
 				m_Go = false;
 				return;
 			}*/
-		Debug.Log (replay);
 		if (!isLogged (replay)) {
 			ScenesParameters.m_Logger = m_Logger;
 			ScenesParameters.m_HasRecorder = false;

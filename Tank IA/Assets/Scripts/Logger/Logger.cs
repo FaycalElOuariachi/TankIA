@@ -12,7 +12,7 @@ public class Logger : MonoBehaviour {
 	public LayerMask shellMask;
 
 
-	private ILog m_Logger;
+	[HideInInspector] public ILog m_Logger;
 	private string m_PathLogger = ScenesParameters.m_PathLogger;
 	private string m_PathLog = ScenesParameters.m_PathLogger + Path.AltDirectorySeparatorChar + "dir_" + ScenesParameters.m_Logger;
 
@@ -58,5 +58,9 @@ public class Logger : MonoBehaviour {
 
 	public void Reset() {
 		m_Logger.Reset ();
+	}
+
+	public void setTimeReference(int time) {
+		m_Logger.setTimeReference (time);
 	}
 }
