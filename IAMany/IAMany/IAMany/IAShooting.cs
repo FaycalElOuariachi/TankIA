@@ -8,11 +8,8 @@ namespace Many
 {
 	public class IAShooting : IIAShooting
 	{
-		Shooting m_TankShooting;
 		Rigidbody m_RigidBody;
 		public Many m_Many;
-
-		private int count = 0;
 
 		public IAShooting (Many many) {
 			m_Many = many;
@@ -32,9 +29,9 @@ namespace Many
 		 * • 1 : Charger le tire
 		 * • 2 : Tirer
 		 */
-		override public int Fire(Dictionary<string,double[]> obs) {
-			Dictionary<string, double[]> probas = m_Many.getObs(obs, Time.frameCount);
-			return m_Many.chooseValue (probas ("shell?"));
+		override public int Fire() {
+			Dictionary<string, double[]> probas = m_Many.getObs(Time.frameCount);
+			return m_Many.chooseValue (probas ["shell?"], "shell?");
 		}
 	}
 }

@@ -45,7 +45,7 @@ public class TankMovementIA : Movement
     }
     
 	private void LoadIA() {
-		string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
+		/*string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
 		string relativePath = String.Format ("{0}{2}", m_IAPath, Path.DirectorySeparatorChar, file);
 
 		//Charge l'assembly
@@ -55,8 +55,8 @@ public class TankMovementIA : Movement
 		foreach ( Type module in assembly.GetTypes() ) {
 			if (module.BaseType == typeof(IIAMovements))
 				m_IAMovement = (IIAMovements) Activator.CreateInstance (module);
-		}
-
+		}*/
+		m_IAMovement = m_IATank.getIAMovement ();
 		m_IAMovement.setTankMovement ((Movement)this);
 	}
 

@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>IAMany</RootNamespace>
     <AssemblyName>IAMany</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -18,6 +18,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" name="copie" command="xcopy /Y &quot;$(TargetPath)&quot; &quot;G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\Tank IA\Assets\Library\IA\&quot;" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -43,6 +48,7 @@
     <Compile Include="IAShooting.cs" />
     <Compile Include="ProbaMany.cs" />
     <Compile Include="Many.cs" />
+    <Compile Include="Observe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Linq;
 
-public class TankShootingIA : Shooting {     
+public class TankShootingIA : Shooting {
 	
    	//private float m_CurrentLaunchForce;  
     //private float m_ChargeSpeed;         
@@ -66,7 +66,7 @@ public class TankShootingIA : Shooting {
     }
 
 	private void LoadIA() {
-		string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
+		/*string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
 
 		string relativePath = String.Format ("{0}{2}", m_IAPath, Path.DirectorySeparatorChar, file);
 
@@ -77,8 +77,9 @@ public class TankShootingIA : Shooting {
 		foreach ( Type module in assembly.GetTypes() ) {
 			if (module.BaseType == typeof(IIAShooting))
 				m_IAShooting = (IIAShooting) Activator.CreateInstance (module);
-		}
+		}*/
 
+		m_IAShooting = m_IATank.getIAShooting ();
 		m_IAShooting.setTankMovement ((Shooting)this);
 	}
 

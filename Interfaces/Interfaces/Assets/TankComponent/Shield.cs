@@ -14,5 +14,6 @@ namespace Interfaces {
 		[HideInInspector]
 		public Dictionary<int, float> m_ShieldOrders;
 		[HideInInspector] public int m_TimeReference;
+		[HideInInspector] public IATank m_IATank;
 	}
 }

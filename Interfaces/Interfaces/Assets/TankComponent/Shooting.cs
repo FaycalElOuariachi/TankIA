@@ -18,6 +18,7 @@ namespace Interfaces {
 		[HideInInspector]
 		public Dictionary<int, int> m_FireOrders;
 		[HideInInspector] public int m_TimeReference;
+		[HideInInspector] public IATank m_IATank;
 
 		protected float m_ChargeSpeed;
 		protected float m_CurrentLaunchForce;

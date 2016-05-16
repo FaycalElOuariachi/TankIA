@@ -25,7 +25,17 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="2714" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="2714" />
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -34,8 +44,8 @@
       <file leaf-file-name="main_createIA.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_createIA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4746318">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.3148148">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -53,31 +63,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="abstractGenerator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/abstractGenerator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="43" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ProbaMany.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProbaMany.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="102.59259">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="8" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetworkBayesian.ipynb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NetworkBayesian.ipynb">
-          <provider selected="true" editor-type-id="ipnb-editor">
-            <state>
-              <selected id="0" />
+      <file leaf-file-name="phpGenerator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpGenerator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="105" column="32" selection-start-line="101" selection-start-column="8" selection-end-line="105" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,18 +86,8 @@
       <file leaf-file-name="csharpGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/csharpGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.285714">
-              <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="samplecode.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/samplecode.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="75.17242">
-              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="11" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -105,8 +96,18 @@
       <file leaf-file-name="samplecode.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/samplecode.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-82.57143">
-              <caret line="272" column="34" selection-start-line="272" selection-start-column="34" selection-end-line="272" selection-end-column="34" />
+            <state vertical-scroll-proportion="-8.185185">
+              <caret line="132" column="25" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="samplecode.csharp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/samplecode.csharp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="163" column="6" selection-start-line="163" selection-start-column="3" selection-end-line="163" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -115,7 +116,7 @@
       <file leaf-file-name="WholeLog.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WholeLog.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -174,7 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -196,6 +196,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,7 +209,7 @@
       <recent name="G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\CSharpGen" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_createIA">
+  <component name="RunManager" selected="Python.csharpGenerator">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -256,6 +257,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CSharpGen" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_createIA.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="csharpGenerator" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CSharpGen" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/csharpGenerator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -382,16 +400,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
       <item index="2" class="java.lang.String" itemvalue="Python.main_createIA" />
+      <item index="3" class="java.lang.String" itemvalue="Python.csharpGenerator" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.main_createIA" />
-        <item index="1" class="java.lang.String" itemvalue="Python.main" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.csharpGenerator" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main_createIA" />
+        <item index="2" class="java.lang.String" itemvalue="Python.main" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -415,20 +435,20 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.090625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29386893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29386893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -459,7 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="20" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -467,7 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -483,7 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="21" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -507,7 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -533,7 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="20" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -541,7 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="21" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -581,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="20" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,7 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,7 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="21" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -655,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="22" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -689,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -705,7 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.62069">
           <caret line="6088" column="48" selection-start-line="6088" selection-start-column="24" selection-end-line="6088" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,17 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="21" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,30 +754,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/samplecode.csharp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="115.82758">
-          <caret line="103" column="32" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpGenerator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.655172">
-          <caret line="105" column="32" selection-start-line="101" selection-start-column="8" selection-end-line="105" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/samplecode.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="75.17242">
+        <state vertical-scroll-proportion="0.0">
           <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NetworkBayesian.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abstractGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="43" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asia.bif">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -797,65 +794,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NetworkBayesian.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/csharpGenerator.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.285714">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProbaMany.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="102.59259">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="8" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/phpGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="2714" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="2714" />
+          <caret line="105" column="32" selection-start-line="101" selection-start-column="8" selection-end-line="105" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/abstractGenerator.py">
+    <entry file="file://$PROJECT_DIR$/csharpGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="43" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="43" />
+          <caret line="73" column="11" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asia.bif">
+    <entry file="file://$PROJECT_DIR$/samplecode.csharp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <caret line="163" column="6" selection-start-line="163" selection-start-column="3" selection-end-line="163" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/samplecode.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-82.57143">
-          <caret line="272" column="34" selection-start-line="272" selection-start-column="34" selection-end-line="272" selection-end-column="34" />
+        <state vertical-scroll-proportion="-8.185185">
+          <caret line="132" column="25" selection-start-line="132" selection-start-column="25" selection-end-line="132" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main_createIA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4746318">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.3148148">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
 	public ReplayManager m_ReplayManager = null;
 
 	public LayerMask m_PlayerMask;
+	public LayerMask m_GroundMask;
+	public LayerMask m_ShellMask;
 	public bool m_MaskOn = false;
 
 	public bool m_HasRecorder = true;
@@ -187,6 +189,7 @@ public class GameManager : MonoBehaviour
 			else if (m_IATanks [i] != "") {
 				m_Tanks [i].m_Instance =
 					Instantiate (m_IATankPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
+				m_Tanks [i].setMask (m_GroundMask, m_ShellMask);
 			}
 			// Sinon, mode normal
 			else {
@@ -194,8 +197,14 @@ public class GameManager : MonoBehaviour
 					Instantiate (m_TankPrefab, m_Tanks [i].m_SpawnPoint.position, m_Tanks [i].m_SpawnPoint.rotation) as GameObject;
 			}
             m_Tanks[i].m_PlayerNumber = i + 1;
-            m_Tanks[i].Setup();
         }
+
+		for (int i = 0; i < m_Tanks.Length; i++) {
+			if (m_IATanks [i] != "") {
+				m_Tanks [i].setTanks (m_Tanks [i], m_Tanks[(i+1)%2]);
+			}
+			m_Tanks[i].Setup();
+		}
 	}
 
 	/**
@@ -227,6 +236,7 @@ public class GameManager : MonoBehaviour
 			m_Loggers [i].m_PlayerNumber = i + 1;
 			m_Loggers [i].m_Instance = Instantiate (m_LoggerPrefab) as GameObject;
 			m_Loggers [i].Setup ();
+			m_Loggers [i].setMask (m_GroundMask, m_ShellMask);
 			m_Loggers [i].SetTank(m_Tanks [i], m_Tanks[(i+1)%2]);
 			m_Loggers [i].setTimeReference(m_TimeReference);
 		}

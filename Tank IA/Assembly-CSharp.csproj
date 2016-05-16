@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Shell\ShellExplosion.cs" />
      <Compile Include="Assets\Scripts\Shell\ShellExplosionReplay.cs" />
      <Compile Include="Assets\Scripts\Tank\IA\TankHealthIA.cs" />
+     <Compile Include="Assets\Scripts\Tank\IA\TankIA.cs" />
      <Compile Include="Assets\Scripts\Tank\IA\TankMovementIA.cs" />
      <Compile Include="Assets\Scripts\Tank\IA\TankShieldIA.cs" />
      <Compile Include="Assets\Scripts\Tank\IA\TankShootingIA.cs" />
@@ -166,6 +167,9 @@
  </Reference>
  <Reference Include="Log">
  <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/loggers/Log.dll</HintPath>
+ </Reference>
+ <Reference Include="IAMany">
+ <HintPath>G:/Work/University/M1 Androïde/Semestre 2/P-ANDROIDE/Océan/Tank IA/Assets/Library/IA/IAMany.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

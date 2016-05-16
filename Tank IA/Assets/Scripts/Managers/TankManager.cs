@@ -27,13 +27,21 @@ public class TankManager : ITankManager// : ATankManager
 	private Shield m_Shield;
 	private Health m_Health;
     private GameObject m_CanvasGameObject;
+	private TankIA m_TankIA = new TankIA ();
 
+	public TankManager() {
+	}
 
     public void Setup()
     {
         m_Movement = m_Instance.GetComponent<Movement>();
         m_Shooting = m_Instance.GetComponent<Shooting>();
         m_Shield = m_Instance.GetComponent<Shield>();
+
+		m_Movement.m_IATank = m_TankIA.m_IATank;
+		m_Shooting.m_IATank = m_TankIA.m_IATank;
+		m_Shield.m_IATank = m_TankIA.m_IATank;
+
         m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
 
 		if (m_isReplay) {
@@ -57,7 +65,15 @@ public class TankManager : ITankManager// : ATankManager
         {
             renderers[i].material.color = m_PlayerColor;
         }
-    }
+	}
+
+	public void setMask(LayerMask collisionMask, LayerMask shellMask) {
+		m_TankIA.setMask (collisionMask, shellMask);
+	}
+
+	public void setTanks (ITankManager allie, ITankManager ennemy) {
+		m_TankIA.setTanks (allie, ennemy);
+	}
 
 	/*public void Update() {
 		//if (Time.frameCount > m_nbFrame + 10)

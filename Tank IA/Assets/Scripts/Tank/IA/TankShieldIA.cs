@@ -45,7 +45,7 @@ public class TankShieldIA : Shield {
 	}
 
 	private void LoadIA() {
-		string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
+		/*string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
 
 		string relativePath = String.Format ("{0}{2}", m_IAPath, Path.DirectorySeparatorChar, file);
 
@@ -56,13 +56,14 @@ public class TankShieldIA : Shield {
 		foreach ( Type module in assembly.GetTypes() ) {
 			if (module.BaseType == typeof(IIAShield))
 				m_IAShield = (IIAShield) Activator.CreateInstance (module);
-		}
+		}*/
 
+		m_IAShield = m_IATank.getIAShield ();
 		m_IAShield.setTankMovement ((Shield)this);
 	}
 
-	public void Activate(bool action) {
-        if (m_IsEnable && !m_IsActivate && action) {        
+	public void Activate(int action) {
+        if (m_IsEnable && !m_IsActivate && action == 1) {
             m_Shield.SetActive(true);
             m_IsActivate = true;    
 			m_IsEnable = false;

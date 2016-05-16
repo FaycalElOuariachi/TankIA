@@ -1,0 +1,10 @@
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\IAMany.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\IAMany.pdb
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\Interfaces.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\UnityEngine.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\UnityEngine.UI.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\Interfaces.pdb
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\UnityEngine.xml
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\UnityEngine.UI.xml
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\obj\Debug\IAMany.dll
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\obj\Debug\IAMany.pdb

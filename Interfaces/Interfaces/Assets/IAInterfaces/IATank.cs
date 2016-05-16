@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Interfaces
 {
@@ -22,6 +23,12 @@ namespace Interfaces
 
 		public IIAShield getIAShield() {
 			return m_IAShield;
+		}
+
+		virtual public void setTanks (Rigidbody allie, Rigidbody ennemy) {
+		}
+
+		virtual public void setMask(LayerMask collisionMask, LayerMask shellMask) {
 		}
 	}
 }

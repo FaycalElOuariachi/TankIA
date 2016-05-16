@@ -30,6 +30,10 @@ public class LoggerManager : MonoBehaviour {
 		m_Logger.Setup ();
 	}
 
+	public void setMask(LayerMask collisionMask, LayerMask shellMask) {
+		m_Logger.setMask (collisionMask, shellMask);
+	}
+
 	public void SetTank(ITankManager m_TankManager, ITankManager m_ennemy) {
 		m_Logger.SetTank (m_TankManager, m_ennemy);
 	}

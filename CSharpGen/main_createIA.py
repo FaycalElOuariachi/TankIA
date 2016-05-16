@@ -15,6 +15,7 @@ learner.useK2([0,1,2,3,4,5,6,7,8, 9, 10, 11, 12])
 
 print("Timon")
 bn = learner.learnBN()
+learner.eraseForbiddenArc("move?", "")
 #gnb.showBN(bn)
 
 print("Pumba")

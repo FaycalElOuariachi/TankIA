@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Interfaces
 {
@@ -13,6 +15,7 @@ namespace Interfaces
 		 * Récupère un lien vers le Component Shooting du tank
 		 */
 		virtual public void setTankMovement (Movement tankMovement) { return; }
+		virtual public void setTankMovement (Movement tankMovement, Rigidbody ennemy) { return; }
 
 		/**
 		 * Détermine si le Tank doit avancer, reculer, ou non
@@ -23,6 +26,8 @@ namespace Interfaces
 		 * •  1 : Avancer
 		 */
 		virtual public int Move() { return 0; }
+		virtual public int Move(Dictionary<string,double[]> obs) { return 0; }
+
 		/**
 		 * Détermine si le Tank doit tourner ou non
 		 * ---
@@ -32,6 +37,8 @@ namespace Interfaces
 		 * •  1 : Tourner à gauche
 		 */
 		virtual public int Turn() { return 0; }
+		virtual public int Turn(Dictionary<string,double[]> obs) { return 0; }
+
 	}
 }
 

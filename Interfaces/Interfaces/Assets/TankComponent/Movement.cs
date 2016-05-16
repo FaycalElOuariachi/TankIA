@@ -21,6 +21,7 @@ namespace Interfaces {
 		[HideInInspector]
 		public Dictionary<int, Quaternion> m_RotationOrders = new Dictionary<int, Quaternion>();
 		[HideInInspector] public int m_TimeReference;
+		[HideInInspector] public IATank m_IATank;
 	}
 }
 
