@@ -5,3 +5,10 @@ Le dossier "Interfaces" contient un projet C# (Visual Studio/MonoDevelop). Il se
 Le dossier "Log" contient une implémentation d'un Logger.
 
 Les dossiers "IATankOne" et "IATankTwo" contiennent deux implémentations différentes de bot.
+
+Le dossier "IAMany" contient l'implémentation de notre robot apprenti.
+
+Le dossier "metaGenBayes/testPAND" permet de faire l'apprentissage. Attention, bien reporter ses variables utilisées dans son modèle probabiliste
+dans le fichier main_createIA.py. Se référer à la donc pyAgrum.
+
+Les exécutables sont dans "Windows/TankIA/" et "Linux/TankIA" selon la version.

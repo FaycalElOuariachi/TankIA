@@ -19,7 +19,7 @@ gum.saveBN(bn, "Many.bif")
 
 generator = CSharpGenerator()
 #generator = phpGenerator.PhpGenerator()
-filename="ProbaMany.cs"
+filename="IA.cs"
 
 import pyAgrum as gum
 import metaGenBayes.compiler as Compiler
@@ -47,5 +47,5 @@ generator.genere(bn,
                  evs,
                  comp,
                  filename,
-                 "ProbaMany",
+                 "getProba",
                  "// generation of CSharp")

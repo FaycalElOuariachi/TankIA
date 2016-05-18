@@ -4,7 +4,7 @@ from abstractGenerator import AbstractGenerator
 class CSharpGenerator(AbstractGenerator):   
   
   def initCpts(self):
-      res = "// Generation de \nprivate double sum;\n"
+      res = "private double sum;\n"
       for i in self._bn.ids():
         list = str(self._bn.cpt(i).tolist())
         list = list.replace('[', '{', len(list))
@@ -14,7 +14,8 @@ class CSharpGenerator(AbstractGenerator):
         dim = self.setDim(cpt)
 
         res += "private double" + dim + " " + CSharpGenerator.nameCpt(self._bn,i) +"= "+list+";\n"
-        #res += " "+CSharpGenerator.nameCpt(self._bn,i) +"= "+str(self._bn.cpt(i).tolist())+";\n"
+
+      res += self.genereFunctionGetProba()
       return res
 
   def getNbDimList(self,list):
@@ -44,7 +45,6 @@ class CSharpGenerator(AbstractGenerator):
     affectation = potentielName + "["
     for i in potentielVariables:
       dim += str(self._bn.variable(int(i)).domainSize()) + ","
-      #dim = "array_fill(0,"+str(self._bn.variable(int(i)).domainSize())+","+dim
 
       loops += "\t"*(count-1) + "for ( int " + "i" + str(count) + " = 0 ; " + "i" + str(count) + " < " + str(self._bn.variable(int(i)).domainSize()) + " ; " + "i" + str(count) + "++ )\n"
       affectation = "\t" + affectation + "i" + str(count) + ","
@@ -57,15 +57,12 @@ class CSharpGenerator(AbstractGenerator):
     dim += ";\n"
 
     return typeVariable + potentielName + " = " + dim + loops + affectation + "\n"
-    #return ("Creation de potentiel {0} (vars={1},fill={2})\n".format(potentielName,potentielVariables,fillval))
   
   def addVarPot(self,evid, cliq, index, value):
-    pass # ?
-    #return("  Ajout de la variable "+str(evid)+" au potentiel "+str(cliq)+"\n")
+    pass
           
   def addSoftEvPot(self,evid,nompot,index,value):
     return "double[] " + str(nompot)+'= evs["'+str(evid)+'"];\n'
-    #return "Add soft evidence "+str(evid)+" in "+str(nompot)+"'index:"+str(index)+",value="+str(value)+")\n"
   
   def mulPotCpt(self,nompot, var,variables):
     R = len(variables)
@@ -86,7 +83,6 @@ class CSharpGenerator(AbstractGenerator):
 
     res += "\t"+nompot+self.indexCSharp(indexPot)+" *= "+str(cpt)+str(self.indexCSharp(indexCpt))+";\n"
     return res
-    #return("Multiplication du potentiel "+str(nompot)+" par la cpt de la variable "+str(var)+"\n")
 
   def indexCSharp(self, index):
     indexCSharp = ""
@@ -118,7 +114,6 @@ class CSharpGenerator(AbstractGenerator):
 
     res += "\t"+nompot1+self.indexCSharp(indexPot1)+" *= "+nompot2+self.indexCSharp(indexPot2)+";\n"
     return res
-    #return("Multiplication du potentiel "+str(nompot1)+" par le potentiel "+str(nompot2)+"\n")
       
   def margi(self,  cliq1, seloncliq2,varPot1,varPot2):
     res = ""
@@ -142,7 +137,6 @@ class CSharpGenerator(AbstractGenerator):
     indexPot2 = "".join(indexPot2)
     res += "\t"+cliq1+self.indexCSharp(indexPot1)+" += "+seloncliq2+self.indexCSharp(indexPot2)+";\n"
     return res
-    #return("Marginalisation de "+str(cliq1)+ " par "+str(seloncliq2)+"\n")
       
   def norm(self, nompot, targ):
 
@@ -151,26 +145,19 @@ class CSharpGenerator(AbstractGenerator):
     res += "\t\tsum+="+nompot+"[i0];\n"
     res += "\tfor(int i0=0;i0<"+nompot+".Length"+";i0++)\n"
     res +=  "\t\t"+nompot+"[i0]/=sum;\n"
-    #res.Add ("action",P_3);
     res += "\tres.Add (\""+targ+"\""+","+nompot+");\n"
     return res
-    #return("Normalisation de "+str(targ)+" on "+str(nompot)+"\n")
   
   def fill(self, pot, num):
     pass
-    #return("Fill "+str(num)+" de "+str(pot)+"\n")
   
   def genereHeader(self,stream,header,nameFunc):
     stream.write(header+"\n\n")
-    stream.write("using UnityEngine;"+"\n"+"using System.Collections;"+"\n"+"using System.Collections.Generic;"+"\n")
+    stream.write("using System.Collections;"+"\n"+"using System.Collections.Generic;"+"\n\n")
     stream.write("public class " + nameFunc + " {"+"\n")
-      #public Dictionary<string, float[]> transformCode(Dictionary<string,float[]> evs){
-    #stream.write(header+"\n\n")
-    self.genereFunctionGetProba(stream)
 
-  def genereFunctionGetProba(self,stream):
-      stream.write("public Dictionary<string, double[]> getProbasIA(Dictionary<string,double[]> evs){"+"\n")
-      stream.write("Dictionary<string, double[]> res = new Dictionary<string, double[]> ();\n" )
+  def genereFunctionGetProba(self):
+    return "public Dictionary<string, double[]> getProbasIA(Dictionary<string,double[]> evs){"+"\n" + "Dictionary<string, double[]> res = new Dictionary<string, double[]> ();\n"
 
   def genereFooter(self,stream,evs,nameFunc):
     stream.write("\n\treturn res;\n}\n}\n\n")

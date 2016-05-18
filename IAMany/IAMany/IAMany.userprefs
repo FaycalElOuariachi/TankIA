@@ -2,12 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="IAMany\Many.cs">
     <Files>
-      <File FileName="IAMany\IAMovements.cs" Line="31" Column="54" />
-      <File FileName="IAMany\IAShield.cs" Line="25" Column="58" />
-      <File FileName="IAMany\IAShooting.cs" Line="12" Column="22" />
+      <File FileName="IAMany\IAMovements.cs" Line="1" Column="1" />
+      <File FileName="IAMany\IAShield.cs" Line="1" Column="1" />
+      <File FileName="IAMany\IAShooting.cs" Line="1" Column="1" />
       <File FileName="IAMany\Many.cs" Line="15" Column="10" />
-      <File FileName="IAMany\ProbaMany.cs" Line="255" Column="7" />
-      <File FileName="IAMany\Observe.cs" Line="222" Column="28" />
+      <File FileName="IAMany\ProbaMany.cs" Line="1" Column="1" />
+      <File FileName="IAMany\Observe.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

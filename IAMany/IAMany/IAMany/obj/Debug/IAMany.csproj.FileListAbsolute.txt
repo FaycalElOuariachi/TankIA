@@ -6,5 +6,6 @@ G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMan
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\Interfaces.pdb
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\UnityEngine.xml
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\bin\Debug\UnityEngine.UI.xml
+G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\obj\Debug\IAMany.csprojResolveAssemblyReference.cache
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\obj\Debug\IAMany.dll
 G:\Work\University\M1 Androïde\Semestre 2\P-ANDROIDE\Océan\IAMany\IAMany\IAMany\obj\Debug\IAMany.pdb
