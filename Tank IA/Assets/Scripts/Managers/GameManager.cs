@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(RoundPlaying());
         yield return StartCoroutine(RoundEnding());
 
-        if (m_GameWinner != null)
+		if (m_GameWinner != null || NoMoreReplay())
         {
 			//Application.LoadLevel (Application.loadedLevel);
 			//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -281,6 +281,17 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(GameLoop());
         }
+	}
+
+	private bool NoMoreReplay() {
+		if (m_GameName != "") {
+			if (File.Exists (m_RecorderPath + "\\Round" + (m_RoundNumber+1) + "_1" + "ascii.IArec"))
+				return false;
+			else
+				return true;
+		}
+	
+		return false;
 	}
 
 	/**

@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Interfaces\Interfaces.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Interfaces\Assets\IAInterfaces\IATank.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Interfaces\Assets\TankComponent\Health.cs">
     <Files>
       <File FileName="Interfaces\Assets\ITankManager.cs" Line="1" Column="1" />
       <File FileName="Interfaces\Assets\Log\ILog.cs" Line="1" Column="1" />
@@ -9,7 +9,7 @@
       <File FileName="Interfaces\Assets\IAInterfaces\IIAMovements.cs" Line="1" Column="1" />
       <File FileName="Interfaces\Assets\TankComponent\Shield.cs" Line="1" Column="1" />
       <File FileName="Interfaces\Assets\TankComponent\Shooting.cs" Line="1" Column="1" />
-      <File FileName="Interfaces\Assets\IAInterfaces\IATank.cs" Line="42" Column="3" />
+      <File FileName="Interfaces\Assets\IAInterfaces\IATank.cs" Line="36" Column="1" />
       <File FileName="Interfaces\Assets\IAInterfaces\IIAShield.cs" Line="1" Column="1" />
       <File FileName="Interfaces\Assets\IAInterfaces\IIAShooting.cs" Line="1" Column="1" />
     </Files>

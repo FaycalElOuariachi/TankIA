@@ -116,6 +116,27 @@ public class TankMovementIA : Movement
 				m_MovementInputValue = 1f;
 			break;
 		}
+		switch (turn) {
+		case -1:
+			if (m_TurnInputValue > -1f)
+				m_TurnInputValue -= m_AcceleroValue;
+			if (m_TurnInputValue < -1f)
+				m_TurnInputValue = -1f;
+			break;
+		case 0:
+			if (m_TurnInputValue < 0f) {
+				m_TurnInputValue += m_AcceleroValue;
+			} else if (m_TurnInputValue > 0f) {
+				m_TurnInputValue -= m_AcceleroValue;
+			}
+			break;
+		case 1:
+			if (m_TurnInputValue < 1f)
+				m_TurnInputValue += m_AcceleroValue;
+			if (m_TurnInputValue > 1f)
+				m_TurnInputValue = 1f;
+			break;
+		}
 		Move ();
 		Turn ();
 

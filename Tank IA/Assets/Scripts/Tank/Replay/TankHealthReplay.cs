@@ -13,6 +13,7 @@ public class TankHealthReplay : Health {
     private ParticleSystem m_ExplosionParticles;   
     private bool m_Dead;
 
+	private int m_LastFrame = -1;
 
     private void Awake()
 	{
@@ -33,6 +34,19 @@ public class TankHealthReplay : Health {
     
 	private void Update() {
 		float newHealth;
+
+		if (m_LastFrame < Time.frameCount - m_TimeReference) {
+			foreach (int frame in m_HealthOrders.Keys) {
+				if (frame > m_LastFrame)
+					m_LastFrame = frame;
+			}
+		}
+
+		Debug.Log (m_LastFrame);
+		Debug.Log (Time.frameCount - m_TimeReference);
+		if (Time.frameCount - m_TimeReference > m_LastFrame) {
+			TakeDamage (m_CurrentHealth);
+		}
 
 		if (m_HealthOrders.TryGetValue (Time.frameCount - m_TimeReference, out newHealth) && m_CurrentHealth != newHealth) {
 			TakeDamage2 (m_CurrentHealth - newHealth);

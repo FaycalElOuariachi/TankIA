@@ -31,16 +31,27 @@ namespace Many
 		}
 
 		public int chooseValue(double[] obs, string action) {
+			Debug.Log (action);
 			System.Random random = new System.Random();
 			double rand = random.NextDouble ();
-			int i = 0;
+			int i = 0, ret = -1;
+			if (action == "turn?") {
+				Debug.Log ("turn?");
+				Debug.Log (rand);
+			}
 			for ( i = 0 ; i < obs.Length ; i++) {
-				Debug.Log (obs[i]);
-				if (rand < obs[i]) {
-					return values[action][i];
+				if (action == "turn?")
+					Debug.Log (obs[i]);
+				if (rand < obs [i]) {
+					ret = values [action] [i];
+					//return values[action][i];
+				} else {
+					rand -= obs [i];
 				}
 			}
-			return values[action][i];
+			if (ret != -1)
+				return ret;
+			return values[action][i-1];
 		}
 
 		override public void setMask(LayerMask collisionMask, LayerMask shellMask)
@@ -57,10 +68,10 @@ namespace Many
 				Dictionary<string,double[]> obs;
 				obs = observe.Observation ();
 				m_Probas = m_ProbaMany.getProbasIA (obs);
-				Debug.Log ("Timon");
+				/*Debug.Log ("Timon");
 				Debug.Log (m_Probas["move?"][0]);
 				Debug.Log (m_Probas["move?"][1]);
-				Debug.Log (m_Probas["move?"][2]);
+				Debug.Log (m_Probas["move?"][2]);*/
 				m_FrameCounter = frameCounter;
 			}
 			return m_Probas;			

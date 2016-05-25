@@ -24,23 +24,19 @@ public class TankManagerReplay {//: ITankManager {
 
     public void Setup()
     {
-		Debug.Log ("Timon");
         m_Movement = m_Instance.GetComponent<TankMovementReplay>();
         m_Shooting = m_Instance.GetComponent<TankShootingReplay>();
         m_Shield = m_Instance.GetComponent<TankShieldReplay>();
 		m_Health = m_Instance.GetComponent<TankHealthReplay> ();
         m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
-		Debug.Log ("Pumba");
 
         m_Movement.m_PlayerNumber = m_PlayerNumber;
         m_Shooting.m_PlayerNumber = m_PlayerNumber;
         m_Shield.m_PlayerNumber = m_PlayerNumber;
 
-		Debug.Log ("Hakuna");
         m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
 
         MeshRenderer[] renderers = m_Instance.GetComponentsInChildren<MeshRenderer>();
-		Debug.Log ("Matata");
         for (int i = 0; i < renderers.Length; i++)
         {
             renderers[i].material.color = m_PlayerColor;
@@ -103,7 +99,6 @@ public class TankManagerReplay {//: ITankManager {
 
                     case "T":
                         turnOrders.Add(int.Parse(split[0]), float.Parse(split[2]));
-                        Debug.LogWarning(split[2]);
                         break;
 
                     case "F":
@@ -152,7 +147,6 @@ public class TankManagerReplay {//: ITankManager {
 		m_Movement.m_PositionOrders = positionOrders;
 		m_Movement.m_RotationOrders = rotationOrders;
 		if (m_Health.m_HealthOrders != null)
-			Debug.Log("Timon & Pumba");
 		m_Health.m_HealthOrders = healthOrders;
 
 

@@ -14,7 +14,7 @@ public class TankIA
 	public TankIA() {
 		string file = ScenesParameters.m_IATanks[m_PlayerNumber-1];
 		string relativePath = String.Format ("{0}{2}", m_IAPath, Path.DirectorySeparatorChar, file);
-		Debug.Log (relativePath);
+		//Debug.Log (relativePath);
 
 		//Charge l'assembly
 		Assembly assembly = Assembly.LoadFile (relativePath);
@@ -31,9 +31,9 @@ public class TankIA
 	}
 
 	public void setTanks (ITankManager allie, ITankManager ennemy) {
-		Debug.Log ("123");
-		Debug.Log (allie.m_Instance.GetComponent<Rigidbody>());
-		Debug.Log (ennemy.m_Instance.GetComponent<Rigidbody>());
+		//Debug.Log ("123");
+		//Debug.Log (allie.m_Instance.GetComponent<Rigidbody>());
+		//Debug.Log (ennemy.m_Instance.GetComponent<Rigidbody>());
 		m_IATank.setTanks (allie.m_Instance.GetComponent<Rigidbody>(), ennemy.m_Instance.GetComponent<Rigidbody>());
 	}
 }

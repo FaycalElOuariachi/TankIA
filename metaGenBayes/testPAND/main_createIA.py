@@ -9,17 +9,39 @@ from metaGenBayes.csharpGenerator import CSharpGenerator
 
 from metaGenBayes import phpGenerator
 
+bn=gum.BayesNet('WaterSprinkler')
+
+names = [["distance?", 3],["direction?", 9],["dist_coll_1?", 2],["dir_coll_1?", 9]]
+
+names += [["dist_coll_2?", 2],["dir_coll_2?", 9]]
+names += [["dist_coll_3?", 2],["dir_coll_3?", 9]]
+names += [["dist_shell?", 2]]
+names += [["move?", 3]]
+names += [["turn?", 3]]
+names += [["shell?", 3]]
+names += [["shield?", 2]]
+
+Varia = [ bn.add(gum.LabelizedVariable(name[0], '', name[1])) for name in names ]
+
 learner=gum.BNLearner("WholeLog.csv")
+
+#learner.learnParameters(bn)
+
 print(learner.names())
+learner.useScoreAIC()
+learner.setSliceOrder([[0,1,2,3,4,5,6,7,8], [9, 10, 11, 12]])
+
+learner.useAprioriSmoothing(10e-2)
+learner.useGreedyHillClimbing()
 #learner.useLocalSearchWithTabuList()
-learner.useK2([0,1,2,3,4,5,6,7,8, 9, 10, 11, 12])
+#learner.useK2([0,1,2,3,4,5,6,7,8, 9, 10, 11, 12])
 
 bn = learner.learnBN()
 gum.saveBN(bn, "Many.bif")
 
 generator = CSharpGenerator()
 #generator = phpGenerator.PhpGenerator()
-filename="IA.cs"
+filename="Many.cs"
 
 import pyAgrum as gum
 import metaGenBayes.compiler as Compiler

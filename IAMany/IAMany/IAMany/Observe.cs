@@ -17,28 +17,53 @@ namespace Many
 		private float m_RadiusShell = 3;
 
 		private string m_NameDistance = "distance?";
+		private int[] m_InterDist = {1, 0, 2, 3};
 		private int m_DomDefDistance = 4;
 		private int[] m_IntervallesDistances = { 20, 60, 120};
 
 		private string m_NameDirection = "direction?";
+		private int[] m_InterDir = {0, 7, 1, 6, 5, 2, 4, 8, 3};
 		private int m_DomDefDirection = m_Quartier + 1;
 
 		private string m_NameDistColl1 = "dist_coll_1?";
+		private int[] m_InterDistCool1 = {0, 1, 2};
 		private int m_DomDefDistColl1 = 3;
 		private string m_NameDirColl1 = "dir_coll_1?";
+		private int[] m_InterDirColl1 = {3, 4, 6, 5, 1, 2, 0, 7, 8};
 		private int m_DomDefDirColl1 = m_Quartier + 1;
 		private string m_NameDistColl2 = "dist_coll_2?";
+		private int[] m_InterDistColl2 = {0, 1, 2};
 		private int m_DomDefDistColl2 = 3;
 		private string m_NameDirColl2 = "dir_coll_2?";
+		private int[] m_InterDirColl2 = {3, 4, 6, 5, 1, 2, 0, 7, 8};
 		private int m_DomDefDirColl2 = m_Quartier + 1;
 		private string m_NameDistColl3 = "dist_coll_3?";
+		private int[] m_InterDistColl3 = {0, 1, 2};
 		private int m_DomDefDistColl3 = 3;
 		private string m_NameDirColl3 = "dir_coll_3?";
+		private int[] m_InterDirColl3 = {3, 4, 6, 5, 2, 0, 1, 7, 8};
 		private int m_DomDefDirColl3 = m_Quartier + 1;
 		private int[] m_IntervallesCollision = { 10, 30};
 
 		private string m_NameDistShell = "dist_shell?";
+		private int[] m_InterShell = {0, 1};
 		private int m_DomDefDistShell = 2;
+
+		private Dictionary<string, int[]> values = new Dictionary<string, int[]> ()  {
+			{"distance?", new int[]{1, 0, 2, 3}},
+			{"direction?", new int[]{0, 7, 1, 6, 5, 2, 4, 8, 3}},
+			{"dist_coll_1?", new int[]{0, 1, 2}},
+			{"dir_coll_1?", new int[]{3, 4, 6, 5, 1, 2, 0, 7, 8}},
+			{"dist_coll_2?", new int[]{0, 1, 2}},
+			{"dir_coll_2?", new int[]{3, 4, 6, 5, 1, 0, 2, 7, 8}},
+			{"dist_coll_3?", new int[]{0, 1, 2}},
+			{"dir_coll_3?", new int[]{3, 4, 6, 5, 2, 0, 1, 7, 8}},
+			{"dist_shell?", new int[]{0, 1}},
+			{"move?", new int[]{1, 0, -1}},
+			{"turn?", new int[]{1, 0, -1}},
+			{"shield?", new int[]{0, 1}},
+			{"shell?", new int[]{0, 1, 2}}
+		};
 
 		public Observe ()
 		{
@@ -148,59 +173,63 @@ namespace Many
 				ennemyShell = 1;
 			else
 				ennemyShell = 0;
-
 			// Ajout des observtations
 			int ind, jnd;
 			double[] finalDistanceD = new double[m_DomDefDistance];
 			for ( ind = 0 ; ind < m_DomDefDistance ; ind++ ) {
 				if (ind == finalDistance)
-					finalDistanceD [ind] = 1.0;
+					finalDistanceD [values[m_NameDistance][ind]] = 1.0;
 				else
-					finalDistanceD [ind] = 0.0;
+					finalDistanceD [values[m_NameDistance][ind]] = 0.0;
 			}
+
 			double[] iD = new double[m_DomDefDirection];
 			for ( ind = 0 ; ind < m_DomDefDirection ; ind++ ) {
 				if (ind == i)
-					iD [ind] = 1.0;
+					iD [values[m_NameDirection][ind]] = 1.0;
 				else
-					iD [ind] = 0.0;
+					iD [values[m_NameDirection][ind]] = 0.0;
 			}
 
+
 			List<double[]> finalDistancesCD = new List<double[]>();
+			string[]  nameDistColl = new string[] {m_NameDistColl1, m_NameDistColl2, m_NameDistColl3};
 			for (jnd = 0; jnd < 3; jnd++) {
 				finalDistancesCD.Add (new double[m_DomDefDistColl1]);
 				for (ind = 0; ind < m_DomDefDistColl1; ind++) {
+					
 					if (ind == finalDistancesC[jnd])
-						finalDistancesCD[jnd][ind] = 1.0;
+						finalDistancesCD[jnd][values[nameDistColl[jnd]][ind]] = 1.0;
 					else
-						finalDistancesCD[jnd][ind] = 0.0;
+						finalDistancesCD[jnd][values[nameDistColl[jnd]][ind]] = 0.0;
 				}
 			}
 
 			List<double[]> iCD = new List<double[]>();
+			string[]  nameDirColl = new string[] {m_NameDirColl1, m_NameDirColl2, m_NameDirColl3};
 			for (jnd = 0; jnd < 3; jnd++) {
 				iCD.Add (new double[m_DomDefDirColl1]);
 				for (ind = 0; ind < m_DomDefDirColl1; ind++) {
 					if (ind == iC[jnd])
-						iCD[jnd][ind] = 1.0;
+						iCD[jnd][values[nameDirColl[jnd]][ind]] = 1.0;
 					else
-						iCD[jnd][ind] = 0.0;
+						iCD[jnd][values[nameDirColl[jnd]][ind]] = 0.0;
 				}
 			}
 
 			double[] iSD = new double[m_DomDefDistShell];
 			for ( ind = 0 ; ind < m_DomDefDistShell ; ind++ ) {
 				if (ind == ennemyShell)
-					iSD [ind] = 1.0;
+					iSD [values[m_NameDistShell][ind]] = 1.0;
 				else
-					iSD [ind] = 0.0;
+					iSD [values[m_NameDistShell][ind]] = 0.0;
 			}
 
-			Debug.Log ("distance");
+			/*Debug.Log ("distance");
 			Debug.Log (finalDistance);
 			Debug.Log (finalDistanceD[0]);
 			Debug.Log (finalDistanceD[1]);
-			Debug.Log (finalDistanceD[2]);
+			Debug.Log (finalDistanceD[2]);*/
 
 			obs.Add(m_NameDistance, finalDistanceD);
 			obs.Add(m_NameDirection, iD);
